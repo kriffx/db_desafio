@@ -20,7 +20,9 @@
 
 #### :bookmark_tabs: BDDs:
 :small_blue_diamond:[Login](https://github.com/loopfagundes/db_desafio/blob/develop/documents/BDDs/login.md)
+
 :small_blue_diamond:[Products - Your Cart](https://github.com/loopfagundes/db_desafio/blob/develop/documents/BDDs/products.md)
+
 :small_blue_diamond:[Checkout - Finish](https://github.com/loopfagundes/db_desafio/blob/develop/documents/BDDs/checkout_finish.md)
 
 ---  
@@ -64,7 +66,7 @@ mvn test
 Padrão do browser Chrome.  
 Para executar no Firefox ou Edge,  caminho para acessar de pastas dentro IDE:  
 ```  
-src/main/java/app.netlify.bugbank/utils/BaseTest
+src/main/java/com.saucedemo/utils/BaseTest
 ```  
 ```java  
 @BeforeMethod DriverFactory.createInstance(BrowserEnum.CHROME);  
