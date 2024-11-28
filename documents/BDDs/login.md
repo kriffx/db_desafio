@@ -4,8 +4,9 @@
 CT-001
 
 **Funcionalidade:** Login do Usuário
-Como um usuário autenticado
-Quero realizar login no sistema
+
+Como um usuário autenticado.
+Quero realizar login no sistema.
 Para acessar as funcionalidades disponíveis.
 
 **Cenário:** Realizar login com credenciais válidas
@@ -24,9 +25,10 @@ Para acessar as funcionalidades disponíveis.
 CT-002
 
 **Funcionalidade:** Login do Usuário
-Como um usuário
-Quero receber um aviso ao tentar fazer login com credenciais inválidas
-Para corrigir os dados e acessar o sistema.
+
+Como um usuário.
+Quero receber um aviso ao tentar fazer login com credenciais inválidas.
+Garantir que o sistema não permita e impeça o acesso ao login com dados que não sejam credenciais válidas.
 
 **Cenário:** Tentar login com username inválido
 
@@ -46,9 +48,10 @@ Para corrigir os dados e acessar o sistema.
 CT-003
 
 **Funcionalidade:** Login do Usuário
-Como um usuário
-Quero receber um aviso ao tentar fazer login com senha inválida
-Para corrigir os dados e acessar o sistema.
+
+Como um usuário.
+Quero receber um aviso ao tentar fazer login com senha inválida.
+Garantir que o sistema não permita e impeça o acesso ao login com dados que não sejam credenciais válidas.
 
 **Cenário:** Tentar login com senha inválida
 
@@ -68,9 +71,10 @@ Para corrigir os dados e acessar o sistema.
 CT-004
 
 **Funcionalidade:** Login do Usuário
-Como um usuário
-Quero receber um aviso ao tentar fazer login sem preencher o campo de senha
-Para corrigir os dados e acessar o sistema.
+
+Como um usuário.
+Quero receber um aviso ao tentar fazer login sem preencher o campo de senha.
+Garantir que o sistema não permita e impeça o acesso ao login com dados que não sejam credenciais válidas.
 
 **Cenário:** Tentar login sem preencher a senha
 
@@ -90,9 +94,10 @@ Para corrigir os dados e acessar o sistema.
 CT-005
 
 **Funcionalidade:** Login do Usuário
-Como um usuário
-Quero receber um aviso ao tentar fazer login sem preencher o campo de username
-Para corrigir os dados e acessar o sistema.
+
+Como um usuário.
+Quero receber um aviso ao tentar fazer login sem preencher o campo de username.
+Garantir que o sistema não permita e impeça o acesso ao login com dados que não sejam credenciais válidas.
 
 **Cenário:** Tentar login sem preencher o username
 
@@ -112,9 +117,10 @@ Para corrigir os dados e acessar o sistema.
 CT-006
 
 **Funcionalidade:** Login do Usuário
+
 Como um usuário.
 Quero receber um aviso ao tentar fazer login sem preencher o username e a senha.
-Para corrigir os dados e acessar o sistema.
+Garantir que o sistema não permita e impeça o acesso ao login com dados que não sejam credenciais válidas.
 
 **Cenário:** Tentar login sem preencher username e senha
 
@@ -134,9 +140,10 @@ Para corrigir os dados e acessar o sistema.
 CT-007
 
 **Funcionalidade:** Login do Usuário
-Como um usuário
-Quero receber um aviso ao tentar fazer login com credenciais inválidas
-Para corrigir os dados e acessar o sistema.
+
+Como um usuário.
+Quero receber um aviso ao tentar fazer login com credenciais inválidas.
+Garantir que o sistema não permita e impeça o acesso ao login com dados que não sejam credenciais válidas.
 
 **Cenário:** Tentar login com username e senha inválidos
 
@@ -156,8 +163,9 @@ Para corrigir os dados e acessar o sistema.
 CT-008
 
 **Funcionalidade:** Login do Usuário
-Como um usuário
-Quero verificar se consigo fazer login com o máximo de caracteres permitidos
+
+Como um usuário.
+Quero verificar se consigo fazer login com o máximo de caracteres permitidos.
 Para garantir que o sistema aceita entradas com limites máximos.
 
 **Cenário:** Tentar login com username e senha mais de 255 caracteres
@@ -178,8 +186,9 @@ Para garantir que o sistema aceita entradas com limites máximos.
 CT-009
 
 **Funcionalidade:** Login do Usuário
-Como um usuário
-Quero verificar se o sistema permite login com username e senha curtos
+
+Como um usuário.
+Quero verificar se o sistema permite login com username e senha curtos.
 Para garantir que o sistema não aceita entradas de 3 caracteres.
 
 **Cenário:** Tentar login com username e senha de 3 caracteres
@@ -200,8 +209,9 @@ Para garantir que o sistema não aceita entradas de 3 caracteres.
 CT-010
 
 **Funcionalidade:** Login do Usuário
-Como um usuário
-Quero verificar se o sistema aceita username com caracteres especiais
+
+Como um usuário.
+Quero verificar se o sistema aceita username com caracteres especiais.
 Para garantir que usernames com caracteres especiais sejam aceitos.
 
 **Cenário:** Tentar login com username com caracteres especiais e senha válida
@@ -220,8 +230,9 @@ Para garantir que usernames com caracteres especiais sejam aceitos.
 CT-011
 
 **Funcionalidade:** Login do Usuário
-Como um usuário
-Quero verificar se o sistema aceita senha com caracteres especiais
+
+Como um usuário.
+Quero verificar se o sistema aceita senha com caracteres especiais.
 Para garantir que senhas com caracteres especiais sejam aceitas.
 
 **Cenário:** Tentar login com username válido e senha com caracteres especiais
