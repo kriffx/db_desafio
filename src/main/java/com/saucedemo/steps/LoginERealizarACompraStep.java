@@ -2,7 +2,6 @@ package com.saucedemo.steps;
 
 import com.aventstack.extentreports.Status;
 import com.saucedemo.dto.UserDataDTO;
-import com.saucedemo.dto.UserModelDTO;
 import com.saucedemo.pageobjects.LoginAppObject;
 import com.saucedemo.utils.Report;
 import org.openqa.selenium.WebDriver;
