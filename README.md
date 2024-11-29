@@ -31,20 +31,22 @@
 
 #### Construido com a estrutura:
 
-:pushpin: [MAVEN](https://maven.apache.org/download.cgi),
+:pushpin: [MAVEN](https://maven.apache.org/download.cgi)
 
 :pushpin: [JAVA 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 
 #### Dependencias:
-:pushpin: [TestNG](https://mvnrepository.com/artifact/org.testng/testng/7.10.2),
+:pushpin: [TestNG](https://mvnrepository.com/artifact/org.testng/testng/7.10.2)
 
-:pushpin: [Selenium Java](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.27.0),
+:pushpin: [Selenium Java](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java/4.27.0)
 
-:pushpin: [WebDriverManager](https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager/5.9.2),
+:pushpin: [WebDriverManager](https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager/5.9.2)
 
 :pushpin: [Extent Reports TestNG Adapter](https://mvnrepository.com/artifact/com.aventstack/extentreports-testng-adapter/1.0.3)
 
 :pushpin: [Java Faker](https://mvnrepository.com/artifact/com.github.javafaker/javafaker/1.0.2)
+
+:pushpin: [Lombok](https://mvnrepository.com/artifact/org.projectlombok/lombok/1.18.36)
 
 ---  
 
