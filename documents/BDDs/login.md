@@ -15,7 +15,7 @@ Para acessar as funcionalidades disponíveis.
 
 **Quando** eu preencho o campo "Username" com "standard_user"
 
-**E** eu preencho o campo "Senha" com "secret_sauce"
+**E** eu preencho o campo "Password" com "secret_sauce"
 
 **E** eu clico no botão "Login"
 
@@ -36,7 +36,7 @@ Garantir que o sistema não permita e impeça o acesso ao login com dados que n�
 
 **Quando** eu preencho o campo "Username" com "test_01"
 
-**E** eu preencho o campo "Senha" com "secret_sauce"
+**E** eu preencho o campo "Password" com "secret_sauce"
 
 **E** eu clico no botão "Login"
 
@@ -59,7 +59,7 @@ Garantir que o sistema não permita e impeça o acesso ao login com dados que n�
 
 **Quando** eu preencho o campo "Username" com "standard_user"
 
-**E** eu preencho o campo "Senha" com "senha_invalida"
+**E** eu preencho o campo "Password" com "senha_invalida"
 
 **E** eu clico no botão "Login"
 
@@ -82,7 +82,7 @@ Garantir que o sistema não permita e impeça o acesso ao login com dados que n�
 
 **Quando** eu preencho o campo "Username" com "standard_user"
 
-**E** eu não preencho o campo "Senha"
+**E** eu não preencho o campo "Password"
 
 **E** eu clico no botão "Login"
 
@@ -105,7 +105,7 @@ Garantir que o sistema não permita e impeça o acesso ao login com dados que n�
 
 **Quando** eu não preencho o campo "Username"
 
-**E** eu preencho o campo "Senha" com "secret_sauce"
+**E** eu preencho o campo "Password" com "secret_sauce"
 
 **E** eu clico no botão "Login"
 
@@ -128,7 +128,7 @@ Garantir que o sistema não permita e impeça o acesso ao login com dados que n�
 
 **Quando** eu não preencho o campo "Username"
 
-**E** eu não preencho o campo "Senha"
+**E** eu não preencho o campo "Password"
 
 **E** eu clico no botão "Login"
 
@@ -151,7 +151,7 @@ Garantir que o sistema não permita e impeça o acesso ao login com dados que n�
 
 **Quando** eu preencho o campo "Username" com "test_01"
 
-**E** eu preencho o campo "Senha" com "senha_invalida"
+**E** eu preencho o campo "Password" com "senha_invalida"
 
 **E** eu clico no botão "Login"
 
@@ -174,7 +174,7 @@ Para garantir que o sistema aceita entradas com limites máximos.
 
 **Quando** eu preencho o campo "Username" com mais de 255 caracteres
 
-**E** eu preencho o campo "Senha" com mais de 255 caracteres
+**E** eu preencho o campo "Password" com mais de 255 caracteres
 
 **E** eu clico no botão "Login"
 
@@ -197,7 +197,7 @@ Para garantir que o sistema não aceita entradas de 3 caracteres.
 
 **Quando** eu preencho o campo "Username" com 3 caracteres
 
-**E** eu preencho o campo "Senha" com 3 caracteres
+**E** eu preencho o campo "Password" com 3 caracteres
 
 **E** eu clico no botão "Login"
 
@@ -220,7 +220,7 @@ Para garantir que usernames com caracteres especiais sejam aceitos.
 
 **Quando** eu preencho o campo "Username" com "standard_user"
 
-**E** eu preencho o campo "Senha" com "secret_sauce"
+**E** eu preencho o campo "Password" com "secret_sauce"
 
 **E** eu clico no botão "Login"
 
@@ -241,7 +241,7 @@ Para garantir que senhas com caracteres especiais sejam aceitas.
 
 **Quando** eu preencho o campo "Username" com "standard_user"
 
-**E** eu preencho o campo "Senha" com "secret_sauce"
+**E** eu preencho o campo "Password" com "secret_sauce"
 
 **E** eu clico no botão "Login"
 

@@ -11,7 +11,11 @@ public class LoginERealizacaoCompraTestCase extends BaseTest {
         return DriverManager.getDriver();
     }
 
-    @Test
+
+    @Test(
+            description = "Efeturar login e realizar compra.",
+            groups = {"positivo"}
+    )
     public void test() {
 
     }

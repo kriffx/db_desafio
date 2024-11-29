@@ -23,9 +23,7 @@ Para concluir minha compra com os itens desejados.
 
 **Então** eu devo ser redirecionado para a tela "Your Cart"
 
-**Quando** eu preencho o campo de quantidade do item com "2"
-
-**Então** as quantidades, nomes e descrições dos produtos no carrinho devem ser exibidos corretamente
+**E** as quantidades, nomes e descrições dos produtos no carrinho devem ser exibidos corretamente
 
 **Quando** eu clico no botão "CHECKOUT"
 
