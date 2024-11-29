@@ -13,7 +13,7 @@ public class LoginERealizacaoCompraTestCase extends BaseTest {
 
 
     @Test(
-            description = "Efeturar login e realizar compra.",
+            description = "Efeturar login e finalizar a compra.",
             groups = {"positivo"}
     )
     public void test() {
