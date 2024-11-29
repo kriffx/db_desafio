@@ -5,7 +5,7 @@ import com.saucedemo.webdrivers.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-public class LoginERealizacaoCompraTestCase extends BaseTest {
+public class LoginERealizarACompraTestCase extends BaseTest {
 
     private WebDriver driver() {
         return DriverManager.getDriver();
@@ -16,7 +16,7 @@ public class LoginERealizacaoCompraTestCase extends BaseTest {
             description = "Efeturar login e finalizar a compra.",
             groups = {"positivo"}
     )
-    public void test() {
+    public void finalizarACompraComSucessoTest() {
 
     }
 }

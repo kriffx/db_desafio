@@ -40,6 +40,11 @@
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+        </dependency>
         <!--fix: SLF4J-->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
