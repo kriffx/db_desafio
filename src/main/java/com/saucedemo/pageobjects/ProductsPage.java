@@ -5,15 +5,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class ProductsAppObject {
+public class ProductsPage {
     private final WaitElement wait;
 
-    public ProductsAppObject(WebDriver driver) {
+    public ProductsPage(WebDriver driver) {
         wait = new WaitElement(driver);
     }
 
+    public WebElement paginaDeProductNoTopoLabel() {
+        return wait.visibilityOf(By.cssSelector("#inventory_filter_container div"));
+    }
+
     public WebElement quantidadesDosProdutosNoIconeDoCarrinhoLabel() {
-        return wait.toBeClickable(By.cssSelector("#shopping_cart_container > a > span"));
+        return wait.visibilityOf(By.cssSelector("#shopping_cart_container > a > span"));
     }
 
     public WebElement mochilaProdutoAddToCartButton() {
@@ -22,5 +26,9 @@ public class ProductsAppObject {
     
     public WebElement jaquetaProdutoAddToCartButton() {
         return wait.toBeClickable(By.cssSelector("div:nth-child(4) > div.pricebar > button"));
+    }
+
+    public WebElement iconeDoCarrinhoButton() {
+        return wait.toBeClickable(By.id("shopping_cart_container"));
     }
 }

@@ -14,7 +14,7 @@ public class LoginERealizarACompraTestCase extends BaseTest {
 
 
     @Test(
-            description = "Efeturar login e finalizar a compra.",
+            description = "Efetua login e finalizar a compra.",
             groups = {"positivo"}
     )
     public void fluxoDeCompraComSucessoTest() {
