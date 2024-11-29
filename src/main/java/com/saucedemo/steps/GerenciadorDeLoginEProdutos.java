@@ -23,12 +23,12 @@ public class GerenciadorDeLoginEProdutos {
     }
 
     public void iniciaFluxoDeCompra() {
-        efeturaLogin();
+        autenticarUsuario();
         adicionaItensAoCarrinho();
-        processaSelecaoDeProdutos();
+        verificaProdutosNoCarrinhoECheckout();
     }
 
-    private void efeturaLogin() {
+    private void autenticarUsuario() {
         Report.logCapture(Status.INFO, "Acessar na tela de login");
         loginUsuario.usernameTextField().sendKeys(UserDataDTO.userData().getUsername());
         loginUsuario.passwordTextField().sendKeys(UserDataDTO.userData().getPassword());
@@ -49,7 +49,7 @@ public class GerenciadorDeLoginEProdutos {
         products.iconeDoCarrinhoButton().click();
     }
 
-    private void processaSelecaoDeProdutos() {
+    private void verificaProdutosNoCarrinhoECheckout() {
         Report.logCapture(Status.INFO, "Redirecionado para tela de Your Cart");
         Assert.assertEquals("Your Cart", yourCart.paginaDeYourCartNoTopoLabel().getText());
         Assert.assertEquals("Sauce Labs Backpack", yourCart.verificarONomeDoProdutoMochilaLabel().getText());
