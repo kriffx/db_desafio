@@ -1,5 +1,6 @@
 package com.saucedemo.utils;
 
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter;
 import com.saucedemo.webdrivers.BrowserEnum;
 import com.saucedemo.webdrivers.DriverFactory;
