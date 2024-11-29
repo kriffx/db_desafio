@@ -2,32 +2,37 @@ package com.saucedemo.steps;
 
 import com.aventstack.extentreports.Status;
 import com.saucedemo.dto.UserDataDTO;
-import com.saucedemo.pageobjects.LoginAppObject;
-import com.saucedemo.pageobjects.ProductsAppObject;
+import com.saucedemo.pageobjects.LoginPage;
+import com.saucedemo.pageobjects.ProductsPage;
+import com.saucedemo.pageobjects.YourCartPage;
 import com.saucedemo.utils.Report;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class GerenciadorDeLoginEProdutos {
     private WebDriver driver;
-    private final LoginAppObject loginUsuario;
-    private final ProductsAppObject products;
+    private final LoginPage loginUsuario;
+    private final ProductsPage products;
+    private final YourCartPage yourCart;
 
     public GerenciadorDeLoginEProdutos(WebDriver _driver) {
         driver = _driver;
-        loginUsuario = new LoginAppObject(_driver);
-        products = new ProductsAppObject(_driver);
+        loginUsuario = new LoginPage(_driver);
+        products = new ProductsPage(_driver);
+        yourCart = new YourCartPage(_driver);
     }
 
     public void iniciaFluxoDeCompra() {
         efeturaLogin();
         adicionaItensAoCarrinho();
+        processaSelecaoDeProdutos();
     }
 
     private void efeturaLogin() {
-        Report.log(Status.INFO,"Acessar na tela de login");
+        Report.logCapture(Status.INFO, "Acessar na tela de login");
         loginUsuario.usernameTextField().sendKeys(UserDataDTO.userData().getUsername());
         loginUsuario.passwordTextField().sendKeys(UserDataDTO.userData().getPassword());
-        if(loginUsuario.loginButton().isDisplayed()) {
+        if (loginUsuario.loginButton().isDisplayed()) {
             loginUsuario.loginButton().click();
             Report.log(Status.PASS, "O botão 'Login' recebeu um clique.");
         } else {
@@ -36,9 +41,26 @@ public class GerenciadorDeLoginEProdutos {
     }
 
     private void adicionaItensAoCarrinho() {
-        Report.log(Status.INFO, "Redirecionado para tela de Products");
+        Report.logCapture(Status.INFO, "Redirecionado para tela de Products");
+        Assert.assertEquals("Products", products.paginaDeProductNoTopoLabel().getText());
         products.mochilaProdutoAddToCartButton().click();
         products.jaquetaProdutoAddToCartButton().click();
-        System.out.println("CARRINHO:" + products.quantidadesDosProdutosNoIconeDoCarrinhoLabel().getText());
+        Assert.assertEquals("2", products.quantidadesDosProdutosNoIconeDoCarrinhoLabel().getText());
+        products.iconeDoCarrinhoButton().click();
+    }
+
+    private void processaSelecaoDeProdutos() {
+        Report.logCapture(Status.INFO, "Redirecionado para tela de Your Cart");
+        Assert.assertEquals("Your Cart", yourCart.paginaDeYourCartNoTopoLabel().getText());
+        Assert.assertEquals("Sauce Labs Backpack", yourCart.verificarONomeDoProdutoMochilaLabel().getText());
+        Assert.assertEquals("29.99", yourCart.verificarOValorDoProdutoMochilaLabel().getText());
+        Assert.assertEquals("Sauce Labs Fleece Jacket", yourCart.verificarONomeDoProdutoJaquetaLabel().getText());
+        Assert.assertEquals("49.99", yourCart.verificarOValorDoProdutoJaquetaLabel().getText());
+        if(yourCart.checkoutButton().isDisplayed()) {
+            yourCart.checkoutButton().click();
+            Report.log(Status.PASS, "O botão de Chekcout recebeu um clique.");
+        } else {
+            Report.logCapture(Status.FAIL, "O botão de Checkout não recebeu um cilque.");
+        }
     }
 }

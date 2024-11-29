@@ -5,10 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LoginAppObject {
+public class LoginPage {
     private final WaitElement wait;
 
-    public LoginAppObject(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         wait = new WaitElement(driver);
     }
 
