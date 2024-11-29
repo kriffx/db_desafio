@@ -1,5 +1,6 @@
 package com.saucedemo.testcases;
 
+import com.saucedemo.steps.LoginERealizarACompraStep;
 import com.saucedemo.utils.BaseTest;
 import com.saucedemo.webdrivers.DriverManager;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ public class LoginERealizarACompraTestCase extends BaseTest {
             groups = {"positivo"}
     )
     public void finalizarACompraComSucessoTest() {
-
+        LoginERealizarACompraStep loginERealizarACompra = new LoginERealizarACompraStep(driver());
+        loginERealizarACompra.EfeturaLoginEFInalizarCompra();
     }
 }
