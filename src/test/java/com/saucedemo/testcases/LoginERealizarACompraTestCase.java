@@ -1,6 +1,6 @@
 package com.saucedemo.testcases;
 
-import com.saucedemo.steps.LoginERealizarACompraStep;
+import com.saucedemo.steps.GerenciadorDeLoginEProdutos;
 import com.saucedemo.utils.BaseTest;
 import com.saucedemo.webdrivers.DriverManager;
 import org.openqa.selenium.WebDriver;
@@ -17,8 +17,8 @@ public class LoginERealizarACompraTestCase extends BaseTest {
             description = "Efeturar login e finalizar a compra.",
             groups = {"positivo"}
     )
-    public void finalizarACompraComSucessoTest() {
-        LoginERealizarACompraStep loginERealizarACompra = new LoginERealizarACompraStep(driver());
-        loginERealizarACompra.EfeturaLoginEFInalizarCompra();
+    public void fluxoDeCompraComSucessoTest() {
+        GerenciadorDeLoginEProdutos loginERealizarACompra = new GerenciadorDeLoginEProdutos(driver());
+        loginERealizarACompra.iniciaFluxoDeCompra();
     }
 }
