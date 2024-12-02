@@ -12,7 +12,7 @@ public class YourCartPage {
         wait = new WaitElement(driver);
     }
 
-    public WebElement paginaDeYourCartNoTopoLabel() {
+    public WebElement tituloYourCartNoTopoLabel() {
         return wait.visibilityOf(By.cssSelector("#contents_wrapper > div.subheader"));
     }
 

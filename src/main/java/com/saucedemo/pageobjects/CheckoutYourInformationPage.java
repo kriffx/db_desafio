@@ -5,14 +5,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class YourInformationPage {
+public class CheckoutYourInformationPage {
     private WaitElement wait;
 
-    public YourInformationPage(WebDriver driver) {
+    public CheckoutYourInformationPage(WebDriver driver) {
         wait = new WaitElement(driver);
     }
 
-    public WebElement paginaDeCheckoutYourInformationNoTopoLabel() {
+    public WebElement tituloCheckoutYourInformationNoTopoLabel() {
         return wait.visibilityOf(By.cssSelector("#contents_wrapper div.subheader"));
     }
 
@@ -28,7 +28,7 @@ public class YourInformationPage {
         return wait.toBeClickable(By.id("postal-code"));
     }
 
-    public WebElement continueButton() {
+    public WebElement continueCheckoutButton() {
         return wait.toBeClickable(By.cssSelector("#checkout_info_container div.checkout_buttons input"));
     }
 }

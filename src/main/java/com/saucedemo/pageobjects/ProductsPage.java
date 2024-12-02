@@ -12,7 +12,7 @@ public class ProductsPage {
         wait = new WaitElement(driver);
     }
 
-    public WebElement paginaDeProductNoTopoLabel() {
+    public WebElement tituloProductNoTopoLabel() {
         return wait.visibilityOf(By.cssSelector("#inventory_filter_container div"));
     }
 

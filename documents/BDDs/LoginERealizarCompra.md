@@ -55,6 +55,8 @@ Para garantir de compra bem-sucedida.
 
 **E** eu devo ver a mensagem "THANK YOU FOR YOUR ORDER"
 
+**E** eu clico no botão de três listras no topo à esquerda.
+
 **Quando** eu clico no botão "Logout"
 
 **E** eu sou redirecionado para a tela de login
