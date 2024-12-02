@@ -21,7 +21,7 @@ public class FinishPage {
     }
 
     public WebElement tresListrasNoTopoButton() {
-        return wait.toBeClickable(By.cssSelector("#menu_button_container > div > div:nth-child(3) > div"));
+        return wait.toBeClickable(By.cssSelector("#menu_button_container div:nth-child(3) div"));
     }
 
     public WebElement logoutNoSideBarButton() {
