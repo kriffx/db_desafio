@@ -46,10 +46,10 @@ public class GerenciadorDeLoginEProdutos {
     private void adicionaItensAoCarrinho() throws Exception {
         Report.logCapture(Status.INFO, "Redirecionado para tela de Products");
         assertEquals(products.tituloProductNoTopoLabel(), "Products");
-        products.mochilaProdutoAddToCartButton().click();
-        products.jaquetaProdutoAddToCartButton().click();
+        click(products.mochilaProdutoAddToCartButton());
+        click(products.jaquetaProdutoAddToCartButton());
         assertEquals(products.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "2");
-        products.iconeDoCarrinhoButton().click();
+        click(products.iconeDoCarrinhoButton());
     }
 
     private void verificaProdutosNoCarrinhoECheckout() throws Exception {
