@@ -6,6 +6,9 @@ public class UserDataDTO {
     public static UserModelDTO userData() {
         dto.setUsername("standard_user");
         dto.setPassword("secret_sauce");
-        return new UserModelDTO(dto.getUsername(), dto.getPassword());
+        dto.setFirstName("Ricardo");
+        dto.setLastName("Costa");
+        dto.setPostalCode("90619-900");
+        return new UserModelDTO(dto.getUsername(), dto.getPassword(), dto.getFirstName(), dto.getLastName(), dto.getPostalCode());
     }
 }
