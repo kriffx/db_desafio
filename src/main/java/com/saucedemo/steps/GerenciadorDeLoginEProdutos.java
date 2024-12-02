@@ -15,6 +15,7 @@ public class GerenciadorDeLoginEProdutos {
     private final YourCartPage yourCart;
     private final CheckoutYourInformationPage yourInformation;
     private final CheckoutOverviewPage overview;
+    private final FinishPage finish;
 
     public GerenciadorDeLoginEProdutos(WebDriver _driver) {
         driver = _driver;
@@ -23,6 +24,7 @@ public class GerenciadorDeLoginEProdutos {
         yourCart = new YourCartPage(_driver);
         yourInformation = new CheckoutYourInformationPage(_driver);
         overview = new CheckoutOverviewPage(_driver);
+        finish = new FinishPage(_driver);
     }
 
     public void iniciaFluxoDeCompra() throws Exception {
@@ -31,6 +33,7 @@ public class GerenciadorDeLoginEProdutos {
         verificaProdutosNoCarrinhoECheckout();
         preencheInformacoesDeCheckout();
         verificarEFinalizarCheckout();
+        verificarFinalizacaoELogout();
     }
 
     private void autenticarUsuario() throws Exception {
@@ -95,5 +98,14 @@ public class GerenciadorDeLoginEProdutos {
         assertEquals(overview.valorTotalDosItensLabel(), "Item total: $79.98");
         assertEquals(overview.valorComTaxasLabel(), "Tax: $6.40");
         assertEquals(overview.valorTotalFinalLabel(), "Total: $86.38");
+    }
+
+    private void verificarFinalizacaoELogout() throws Exception {
+        Report.logCapture(Status.INFO, "Redirecionado para tela de Finish");
+        assertEquals(finish.tituloFinishNoTopoLabel(), "Finish");
+        assertEquals(finish.tituloThankYouForYourOrderLabel(), "THANK YOU FOR YOUR ORDER");
+        click(finish.tresListrasNoTopoButton());
+        click(finish.logoutNoSideBarButton());
+        Report.logCapture(Status.INFO,"Redirecionado para tela de Login");
     }
 }
