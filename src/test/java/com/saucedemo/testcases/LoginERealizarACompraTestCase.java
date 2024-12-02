@@ -15,9 +15,9 @@ public class LoginERealizarACompraTestCase extends BaseTest {
 
     @Test(
             description = "Efetua login e finalizar a compra.",
-            groups = {"positivo"}
+            groups = {"web"}
     )
-    public void fluxoDeCompraComSucessoTest() {
+    public void fluxoDeCompraComSucessoTest() throws Exception {
         GerenciadorDeLoginEProdutos loginERealizarACompra = new GerenciadorDeLoginEProdutos(driver());
         loginERealizarACompra.iniciaFluxoDeCompra();
     }

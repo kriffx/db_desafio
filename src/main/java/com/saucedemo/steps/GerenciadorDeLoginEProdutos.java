@@ -6,6 +6,7 @@ import com.saucedemo.pageobjects.LoginPage;
 import com.saucedemo.pageobjects.ProductsPage;
 import com.saucedemo.pageobjects.YourCartPage;
 import com.saucedemo.utils.Report;
+import com.saucedemo.widgets.Element;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -22,45 +23,35 @@ public class GerenciadorDeLoginEProdutos {
         yourCart = new YourCartPage(_driver);
     }
 
-    public void iniciaFluxoDeCompra() {
+    public void iniciaFluxoDeCompra() throws Exception {
         autenticarUsuario();
         adicionaItensAoCarrinho();
         verificaProdutosNoCarrinhoECheckout();
     }
 
-    private void autenticarUsuario() {
+    private void autenticarUsuario() throws Exception {
         Report.logCapture(Status.INFO, "Acessar na tela de login");
         loginUsuario.usernameTextField().sendKeys(UserDataDTO.userData().getUsername());
         loginUsuario.passwordTextField().sendKeys(UserDataDTO.userData().getPassword());
-        if (loginUsuario.loginButton().isDisplayed()) {
-            loginUsuario.loginButton().click();
-            Report.log(Status.PASS, "O botão 'Login' recebeu um clique.");
-        } else {
-            Report.logCapture(Status.FAIL, "O botão 'Login' não recebeu um clique");
-        }
+        Element.click(loginUsuario.loginButton());
     }
 
-    private void adicionaItensAoCarrinho() {
+    private void adicionaItensAoCarrinho() throws Exception {
         Report.logCapture(Status.INFO, "Redirecionado para tela de Products");
-        Assert.assertEquals("Products", products.paginaDeProductNoTopoLabel().getText());
+        Element.assertEquals(products.paginaDeProductNoTopoLabel(), "Products");
         products.mochilaProdutoAddToCartButton().click();
         products.jaquetaProdutoAddToCartButton().click();
-        Assert.assertEquals("2", products.quantidadesDosProdutosNoIconeDoCarrinhoLabel().getText());
+        Element.assertEquals(products.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "2");
         products.iconeDoCarrinhoButton().click();
     }
 
-    private void verificaProdutosNoCarrinhoECheckout() {
+    private void verificaProdutosNoCarrinhoECheckout() throws Exception {
         Report.logCapture(Status.INFO, "Redirecionado para tela de Your Cart");
-        Assert.assertEquals("Your Cart", yourCart.paginaDeYourCartNoTopoLabel().getText());
-        Assert.assertEquals("Sauce Labs Backpack", yourCart.verificarONomeDoProdutoMochilaLabel().getText());
-        Assert.assertEquals("29.99", yourCart.verificarOValorDoProdutoMochilaLabel().getText());
-        Assert.assertEquals("Sauce Labs Fleece Jacket", yourCart.verificarONomeDoProdutoJaquetaLabel().getText());
-        Assert.assertEquals("49.99", yourCart.verificarOValorDoProdutoJaquetaLabel().getText());
-        if(yourCart.checkoutButton().isDisplayed()) {
-            yourCart.checkoutButton().click();
-            Report.log(Status.PASS, "O botão de Chekcout recebeu um clique.");
-        } else {
-            Report.logCapture(Status.FAIL, "O botão de Checkout não recebeu um cilque.");
-        }
+        Element.assertEquals(yourCart.paginaDeYourCartNoTopoLabel(), "Your Cart");
+        Element.assertEquals(yourCart.verificarONomeDoProdutoMochilaLabel(), "Sauce Labs Backpack");
+        Element.assertEquals(yourCart.verificarOValorDoProdutoMochilaLabel(), "29.99");
+        Element.assertEquals(yourCart.verificarONomeDoProdutoJaquetaLabel(), "Sauce Labs Fleece Jacket");
+        Element.assertEquals(yourCart.verificarOValorDoProdutoJaquetaLabel(), "49.99");
+        Element.click(yourCart.checkoutButton());
     }
 }
