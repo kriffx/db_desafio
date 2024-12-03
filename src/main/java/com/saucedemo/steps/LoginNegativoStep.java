@@ -41,4 +41,12 @@ public class LoginNegativoStep {
         assertEquals(loginPage.obterMensagemDeErrorLabel(), "Epic sadface: Password is required");
         Report.logCapture(Status.INFO, "obter a mensagem de erro");
     }
+
+    public void loginSemUsername() throws Exception {
+        Report.logCapture(Status.INFO, "Tela de login");
+        loginPage.passwordTextField().sendKeys(UserDataDTO.userData().getPassword());
+        click(loginPage.loginButton());
+        assertEquals(loginPage.obterMensagemDeErrorLabel(), "Epic sadface: Username is required");
+        Report.logCapture(Status.INFO, "obter a mensagem de erro");
+    }
 }

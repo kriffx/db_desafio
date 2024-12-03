@@ -33,8 +33,17 @@ public class LoginNegativoTestCase extends BaseTest {
             description = "CT-004, Tentar login sem preencher a senha.",
             groups = {"web"}
     )
-    public void loginSemSenhaTest() throws Exception {
+    public void loginSemPreencherASenhaTest() throws Exception {
         LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
         loginNegativoStep.loginSemSenha();
+    }
+
+    @Test(
+            description = "CT-005, Tentar login sem preencher o username.",
+            groups = {"web"}
+    )
+    public void loginSemPreencherOUsernameTest() throws Exception {
+        LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
+        loginNegativoStep.loginSemUsername();
     }
 }
