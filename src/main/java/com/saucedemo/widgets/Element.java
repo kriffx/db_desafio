@@ -34,4 +34,13 @@ public class Element {
             throw new Exception(e);
         }
     }
+
+    public static void assertEquals(WebElement locator, String expected, String msg) throws Exception {
+        try {
+            Assert.assertEquals(expected, locator.getText(), msg);
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
+            throw new Exception(e);
+        }
+    }
 }

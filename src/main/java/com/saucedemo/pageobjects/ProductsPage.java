@@ -20,11 +20,11 @@ public class ProductsPage {
         return wait.visibilityOf(By.cssSelector("#shopping_cart_container > a > span"));
     }
 
-    public WebElement mochilaProdutoAddToCartButton() {
+    public WebElement primeiroItemAddToCartButton() {
         return wait.toBeClickable(By.cssSelector("div:nth-child(1) > div.pricebar > button"));
     }
     
-    public WebElement jaquetaProdutoAddToCartButton() {
+    public WebElement segundoItemAddToCartButton() {
         return wait.toBeClickable(By.cssSelector("div:nth-child(4) > div.pricebar > button"));
     }
 

@@ -2,8 +2,9 @@
 <suite name = "AllTest" verbose="1">
     <test name = "Teste de todos elementos.">
         <classes>
-            <class name="com.saucedemo.testcases.LoginERealizarACompraTestCase"></class>
-            <class name="com.saucedemo.testcases.LoginNegativoTestCase"></class>
+            <class name="com.saucedemo.testcases.LoginERealizarACompraTestCase"/>
+            <class name="com.saucedemo.testcases.LoginNegativoTestCase"/>
+            <class name="com.saucedemo.testcases.ProductsNegativoTestCase"/>
         </classes>
     </test>
 </suite>

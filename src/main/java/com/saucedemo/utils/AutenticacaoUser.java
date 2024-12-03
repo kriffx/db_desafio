@@ -1,5 +1,6 @@
 package com.saucedemo.utils;
 
+import com.aventstack.extentreports.Status;
 import com.saucedemo.dto.UserDataDTO;
 import com.saucedemo.pageobjects.AutenticacaoLoginPage;
 import com.saucedemo.widgets.Element;
@@ -13,6 +14,7 @@ public class AutenticacaoUser {
     }
 
     public void getAutenticacaoLogin() throws Exception {
+        Report.log(Status.INFO, "Tela de login");
         login.usernameTextField().sendKeys(UserDataDTO.userData().getUsername());
         login.passwordTextField().sendKeys(UserDataDTO.userData().getPassword());
         Element.click(login.loginButton());

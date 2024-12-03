@@ -46,8 +46,8 @@ public class GerenciadorDeLoginEProdutos {
     private void adicionaItensAoCarrinho() throws Exception {
         Report.logCapture(Status.INFO, "Redirecionado para tela de Products");
         assertEquals(products.tituloProductNoTopoLabel(), "Products");
-        click(products.mochilaProdutoAddToCartButton());
-        click(products.jaquetaProdutoAddToCartButton());
+        click(products.primeiroItemAddToCartButton());
+        click(products.segundoItemAddToCartButton());
         assertEquals(products.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "2");
         click(products.iconeDoCarrinhoButton());
     }
@@ -55,10 +55,10 @@ public class GerenciadorDeLoginEProdutos {
     private void verificaProdutosNoCarrinhoECheckout() throws Exception {
         Report.logCapture(Status.INFO, "Redirecionado para tela de Your Cart");
         assertEquals(yourCart.tituloYourCartNoTopoLabel(), "Your Cart");
-        assertEquals(yourCart.verificarONomeDoProdutoMochilaLabel(), "Sauce Labs Backpack");
-        assertEquals(yourCart.verificarOValorDoProdutoMochilaLabel(), "29.99");
-        assertEquals(yourCart.verificarONomeDoProdutoJaquetaLabel(), "Sauce Labs Fleece Jacket");
-        assertEquals(yourCart.verificarOValorDoProdutoJaquetaLabel(), "49.99");
+        assertEquals(yourCart.verificarONomeDoPrimeiroItemLabel(), "Sauce Labs Backpack");
+        assertEquals(yourCart.verificarOValorDoPrimeiroItemLabel(), "29.99");
+        assertEquals(yourCart.verificarONomeDoSegundoItemLabel(), "Sauce Labs Fleece Jacket");
+        assertEquals(yourCart.verificarOValorDoSegundoItemLabel(), "49.99");
         click(yourCart.checkoutButton());
     }
 
