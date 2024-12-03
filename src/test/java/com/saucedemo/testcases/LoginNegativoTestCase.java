@@ -46,4 +46,40 @@ public class LoginNegativoTestCase extends BaseTest {
         LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
         loginNegativoStep.loginSemUsername();
     }
+
+    @Test(
+            description = "CT-006, Tentar login sem preencher o username e senha.",
+            groups = {"web"}
+    )
+    public void loginSemPreencherOUsernameEAPasswordTest() throws Exception {
+        LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
+        loginNegativoStep.loginSemUsernameEAPassword();
+    }
+
+    @Test(
+            description = "CT-007, Tentar login com username e senha inválidos.",
+            groups = {"web"}
+    )
+    public void loginComOUsernameEAPasswordInvalidosTest() throws Exception {
+        LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
+        loginNegativoStep.loginComUsernameEAPasswordInvalidos();
+    }
+
+    @Test(
+            description = "CT-008, Tentar login com username e senha mais de 255 caracteres.",
+            groups = {"web"}
+    )
+    public void loginComOUsernameEAPassword255CaracteresTest() throws Exception {
+        LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
+        loginNegativoStep.loginComUsernameEAPasswordMaisDe255Caracteres();
+    }
+
+    @Test(
+            description = "CT-009, Tentar login com username e senha de 3 caracteres.",
+            groups = {"web"}
+    )
+    public void loginComOUsernameEAPassword3CaracteresTest() throws Exception {
+        LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
+        loginNegativoStep.loginComUsernameEAPasswordMaximoDe3Caracteres();
+    }
 }
