@@ -32,6 +32,10 @@ public class YourCartPage {
         return wait.visibilityOf(By.cssSelector("#cart_contents_container div:nth-child(4) div.item_pricebar div"));
     }
 
+    public WebElement quantidadeDoProdutoTextField() {
+        return wait.toBeClickable(By.cssSelector("#cart_contents_container div.cart_quantity"));
+    }
+
     public WebElement checkoutButton() {
         return wait.toBeClickable(By.cssSelector("#cart_contents_container a.btn_action.checkout_button"));
     }

@@ -38,7 +38,7 @@ Como um usuário.
 Quero adicionar produtos ao carrinho, verificar e ajustar quantidades.
 Para concluir minha compra com os itens desejados.
 
-**Cenário:** Adicionar produto ao carrinho e proceder ao checkout
+**Cenário:** Adicionar o produto ao carrinho, ajustar a quantidade desejada e proceder ao checkout
 
 **Dado** que eu estou na página de listagem de produtos
 

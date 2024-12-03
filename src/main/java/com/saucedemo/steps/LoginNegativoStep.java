@@ -5,7 +5,6 @@ import com.github.javafaker.Faker;
 import com.saucedemo.dto.UserDataDTO;
 import com.saucedemo.pageobjects.AutenticacaoLoginPage;
 import com.saucedemo.utils.Report;
-import com.saucedemo.widgets.Element;
 import org.openqa.selenium.WebDriver;
 
 import static com.saucedemo.widgets.Element.*;
