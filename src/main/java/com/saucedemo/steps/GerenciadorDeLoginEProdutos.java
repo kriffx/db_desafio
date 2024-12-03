@@ -10,7 +10,7 @@ import static com.saucedemo.widgets.Element.*;
 
 public class GerenciadorDeLoginEProdutos {
     private WebDriver driver;
-    private final LoginPage loginUsuario;
+    private final AutenticacaoLoginPage loginUsuario;
     private final ProductsPage products;
     private final YourCartPage yourCart;
     private final CheckoutYourInformationPage yourInformation;
@@ -19,7 +19,7 @@ public class GerenciadorDeLoginEProdutos {
 
     public GerenciadorDeLoginEProdutos(WebDriver _driver) {
         driver = _driver;
-        loginUsuario = new LoginPage(_driver);
+        loginUsuario = new AutenticacaoLoginPage(_driver);
         products = new ProductsPage(_driver);
         yourCart = new YourCartPage(_driver);
         yourInformation = new CheckoutYourInformationPage(_driver);

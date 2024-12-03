@@ -5,10 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LoginPage {
+public class AutenticacaoLoginPage {
     private final WaitElement wait;
 
-    public LoginPage(WebDriver driver) {
+    public AutenticacaoLoginPage(WebDriver driver) {
         wait = new WaitElement(driver);
     }
 
@@ -22,5 +22,9 @@ public class LoginPage {
 
     public WebElement loginButton() {
         return wait.toBeClickable(By.id("login-button"));
+    }
+
+    public WebElement obterMensagemDeErrorLabel() {
+        return wait.visibilityOf(By.cssSelector("#login_button_container form h3"));
     }
 }

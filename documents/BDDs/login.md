@@ -59,7 +59,7 @@ Garantir que o sistema não permita e impeça o acesso ao login com dados que n�
 
 **Quando** eu preencho o campo "Username" com "standard_user"
 
-**E** eu preencho o campo "Password" com "senha_invalida"
+**E** eu preencho o campo "Password" com "1234"
 
 **E** eu clico no botão "Login"
 
