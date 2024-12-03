@@ -31,6 +31,7 @@ public class LoginNegativoStep {
         loginPage.passwordTextField().sendKeys("1234");
         click(loginPage.loginButton());
         assertEquals(loginPage.obterMensagemDeErrorLabel(), "Epic sadface: Username and password do not match any user in this service");
+        Report.logCapture(Status.INFO, "obter a mensagem de erro");
     }
 
     public void loginSemSenha() throws Exception {
@@ -38,5 +39,6 @@ public class LoginNegativoStep {
         loginPage.usernameTextField().sendKeys(UserDataDTO.userData().getUsername());
         click(loginPage.loginButton());
         assertEquals(loginPage.obterMensagemDeErrorLabel(), "Epic sadface: Password is required");
+        Report.logCapture(Status.INFO, "obter a mensagem de erro");
     }
 }
