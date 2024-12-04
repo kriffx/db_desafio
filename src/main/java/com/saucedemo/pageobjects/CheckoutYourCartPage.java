@@ -5,10 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class YourCartPage {
+public class CheckoutYourCartPage {
     private final WaitElement wait;
 
-    public YourCartPage(WebDriver driver) {
+    public CheckoutYourCartPage(WebDriver driver) {
         wait = new WaitElement(driver);
     }
 

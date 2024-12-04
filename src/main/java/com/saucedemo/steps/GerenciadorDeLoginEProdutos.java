@@ -12,7 +12,7 @@ public class GerenciadorDeLoginEProdutos {
     private WebDriver driver;
     private final AutenticacaoLoginPage loginUsuario;
     private final ProductsPage products;
-    private final YourCartPage yourCart;
+    private final CheckoutYourCartPage yourCart;
     private final CheckoutYourInformationPage yourInformation;
     private final CheckoutOverviewPage overview;
     private final FinishPage finish;
@@ -21,7 +21,7 @@ public class GerenciadorDeLoginEProdutos {
         driver = _driver;
         loginUsuario = new AutenticacaoLoginPage(_driver);
         products = new ProductsPage(_driver);
-        yourCart = new YourCartPage(_driver);
+        yourCart = new CheckoutYourCartPage(_driver);
         yourInformation = new CheckoutYourInformationPage(_driver);
         overview = new CheckoutOverviewPage(_driver);
         finish = new FinishPage(_driver);

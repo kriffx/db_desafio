@@ -2,8 +2,8 @@ package com.saucedemo.steps;
 
 import com.aventstack.extentreports.Status;
 import com.saucedemo.pageobjects.ProductsPage;
-import com.saucedemo.pageobjects.YourCartPage;
-import com.saucedemo.utils.AutenticacaoUser;
+import com.saucedemo.pageobjects.CheckoutYourCartPage;
+import com.saucedemo.support.AutenticacaoECheckout;
 import com.saucedemo.utils.Report;
 import org.openqa.selenium.WebDriver;
 
@@ -11,15 +11,15 @@ import static com.saucedemo.widgets.Element.*;
 
 public class ProductsNegativoStep {
     private final WebDriver driver;
-    private final AutenticacaoUser loginUser;
+    private final AutenticacaoECheckout loginUser;
     private final ProductsPage productsPage;
-    private final YourCartPage yourCart;
+    private final CheckoutYourCartPage yourCart;
 
     public ProductsNegativoStep(WebDriver _driver) {
         driver = _driver;
-        loginUser = new AutenticacaoUser(_driver);
+        loginUser = new AutenticacaoECheckout(_driver);
         productsPage = new ProductsPage(_driver);
-        yourCart = new YourCartPage(_driver);
+        yourCart = new CheckoutYourCartPage(_driver);
     }
 
     public void adicionarProdutoEAjustarQuantidadeNoCarrinho() throws Exception {
@@ -62,21 +62,21 @@ public class ProductsNegativoStep {
 
     public void adicionarERemoverProdutosDoCarrinho() throws Exception {
         loginUser.getAutenticacaoLogin();
-        Report.logCapture(Status.INFO, "Ser redirecionado tela de Products");
+        Report.logCapture(Status.INFO, "Redirecionado tela de Products");
         click(productsPage.primeiroItemAddToCartButton());
         click(productsPage.segundoItemAddToCartButton());
         click(productsPage.iconeDoCarrinhoButton());
-        Report.logCapture(Status.INFO, "Ser redirecionado tela de Your Cart");
+        Report.logCapture(Status.INFO, "Redirecionado tela de Your Cart");
         validarSeCarrinhoEstaVazio();
     }
 
     public void adicionarRemoverProdutosEValidarFinalizacaoCompraComCarrinhoVazio() throws Exception {
         loginUser.getAutenticacaoLogin();
-        Report.logCapture(Status.INFO, "Ser redirecionado tela de Products");
+        Report.logCapture(Status.INFO, "Redirecionado tela de Products");
         click(productsPage.primeiroItemAddToCartButton());
         click(productsPage.segundoItemAddToCartButton());
         click(productsPage.iconeDoCarrinhoButton());
-        Report.logCapture(Status.INFO, "Ser redirecionado tela de Your Cart");
+        Report.logCapture(Status.INFO, "Redirecionado tela de Your Cart");
         validarSeCarrinhoEstaVazio();
         if(yourCart.checkoutButton().isDisplayed()) {
             click(yourCart.checkoutButton());
@@ -92,8 +92,8 @@ public class ProductsNegativoStep {
             Report.logCapture(Status.PASS, "Os itens do carrinho estão vazios.");
         } else {
             Report.logCapture(Status.FAIL, "Os itens do carrinho não estão vazios.");
-            assertEquals(yourCart.verificarONomeDoPrimeiroItemLabel(), "Sauce Labs Backpack","O primeiro item deveria estar vazio.");
-            assertEquals(yourCart.verificarONomeDoSegundoItemLabel(), "Sauce Labs Fleece Jacket","O segundo item deveria estar vazio.");
+            assertEquals(yourCart.verificarONomeDoPrimeiroItemLabel(), "Sauce Labs Backpack", "O primeiro item deveria estar vazio.");
+            assertEquals(yourCart.verificarONomeDoSegundoItemLabel(), "Sauce Labs Fleece Jacket", "O segundo item deveria estar vazio.");
         }
     }
 }

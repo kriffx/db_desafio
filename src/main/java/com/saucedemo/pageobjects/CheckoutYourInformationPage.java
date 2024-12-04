@@ -28,6 +28,10 @@ public class CheckoutYourInformationPage {
         return wait.toBeClickable(By.id("postal-code"));
     }
 
+    public WebElement mensagemDeErroCamposObrigatoriosLabel() {
+        return wait.visibilityOf(By.cssSelector("#checkout_info_container h3"));
+    }
+
     public WebElement continueCheckoutButton() {
         return wait.toBeClickable(By.cssSelector("#checkout_info_container div.checkout_buttons input"));
     }

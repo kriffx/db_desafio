@@ -5,6 +5,7 @@
             <class name="com.saucedemo.testcases.LoginERealizarACompraTestCase"/>
             <class name="com.saucedemo.testcases.LoginNegativoTestCase"/>
             <class name="com.saucedemo.testcases.ProductsNegativoTestCase"/>
+            <class name="com.saucedemo.testcases.CheckoutNegativoTestCase"/>
         </classes>
     </test>
 </suite>

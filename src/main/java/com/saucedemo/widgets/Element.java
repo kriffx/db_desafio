@@ -35,9 +35,9 @@ public class Element {
         }
     }
 
-    public static void assertEquals(WebElement locator, String expected, String msg) throws Exception {
+    public static void assertEquals(WebElement locator, String expected, String message) throws Exception {
         try {
-            Assert.assertEquals(expected, locator.getText(), msg);
+            Assert.assertEquals(expected, locator.getText(), message);
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
                  TimeoutException e) {
             throw new Exception(e);
