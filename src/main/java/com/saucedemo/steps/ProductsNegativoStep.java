@@ -4,6 +4,7 @@ import com.aventstack.extentreports.Status;
 import com.saucedemo.pageobjects.ProductsPage;
 import com.saucedemo.pageobjects.CheckoutYourCartPage;
 import com.saucedemo.support.AutenticacaoECheckout;
+import com.saucedemo.utils.JsExecutor;
 import com.saucedemo.utils.Report;
 import org.openqa.selenium.WebDriver;
 
@@ -20,6 +21,18 @@ public class ProductsNegativoStep {
         loginUser = new AutenticacaoECheckout(_driver);
         productsPage = new ProductsPage(_driver);
         yourCart = new CheckoutYourCartPage(_driver);
+    }
+
+    public void adicionarProdutoEAjustarQuantidadeNoCarrinho() throws Exception {
+        Report.log(Status.INFO, "Tela de login");
+        loginUser.getAutenticacaoLogin();
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
+        click(productsPage.segundoItemAddToCartButton());
+        assertEquals(productsPage.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "1");
+        click(productsPage.iconeDoCarrinhoButton());
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Your Cart");
+        JsExecutor.highlightElementWithJs(driver, yourCart.quantidadeDoProdutoLabel());
+        yourCart.quantidadeDoProdutoLabel().sendKeys("2");
     }
 
     public void validarDoCarrinhoAposRecarregarPagina() throws Exception {
@@ -57,7 +70,7 @@ public class ProductsNegativoStep {
         click(productsPage.iconeDoCarrinhoButton());
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Your Cart");
         validarSeCarrinhoEstaVazio();
-        if(yourCart.checkoutButton().isDisplayed()) {
+        if (yourCart.checkoutButton().isDisplayed()) {
             click(yourCart.checkoutButton());
             Report.logCapture(Status.FAIL, "O sistema permitiu itens vazios no carrinho e prosseguiu para finalizar a compra. O sistema deverá impedir o botão quando os itens estão vazios no carrinho.");
         }
