@@ -98,7 +98,7 @@ Como um usuário.
 Quero ser avisado ao tentar continuar sem preencher todos os campos obrigatórios.
 Para corrigir as informações antes de prosseguir.
 
-**Cenário:** Tentar continuar preenchendo apenas o campo "FirstName"
+**Cenário:** Tentar continuar preenchendo apenas o campo "LastName"
 
 **Dado** que eu estou na tela "Checkout: Your Information"
 
@@ -122,7 +122,7 @@ Como um usuário
 Quero ser avisado ao tentar continuar sem preencher todos os campos obrigatórios
 Para corrigir as informações antes de prosseguir.
 
-**Cenário:** Tentar continuar preenchendo apenas o campo "FirstName"
+**Cenário:** Tentar continuar preenchendo apenas o campo "Postal code"
 
 **Dado** que eu estou na tela "Checkout: Your Information"
 
@@ -174,11 +174,11 @@ Para corrigir os dados e prosseguir com o checkout.
 
 **Dado** que eu estou na tela "Checkout: Your Information"
 
-**Quando** eu preencho o campo "FirstName" com "RicardoRicardoRicardo..."
+**Quando** eu preencho o campo "FirstName" com mais de 225 caracteres
 
-**E** eu preencho o campo "LastName" com "CostaCostaCostaCosta..."
+**E** eu preencho o campo "LastName" com com mais de 225 caracteres
 
-**E** eu preencho o campo "Postal Code" com "906199009061990..."
+**E** eu preencho o campo "Postal Code" com com mais de 225 caracteres
 
 **E** eu clico no botão "CONTINUE"
 
@@ -195,7 +195,7 @@ Como um usuário.
 Quero ser avisado ao tentar continuar com informações que contenham números ou caracteres especiais.
 Para corrigir os dados e prosseguir com o checkout.
 
-**Cenário:** Tentar continuar preenchendo os campos obrigatórios com números ou caracteres especiais
+**Cenário:** Tentar continuar preenchendo os campos obrigatórios com números e caracteres especiais
 
 **Dado** que eu estou na tela "Checkout: Your Information"
 

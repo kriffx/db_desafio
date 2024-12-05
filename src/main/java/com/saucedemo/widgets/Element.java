@@ -6,13 +6,8 @@ import org.openqa.selenium.*;
 import org.testng.Assert;
 
 public class Element {
-    private WebDriver driver;
 
-    public Element(WebDriver _driver) {
-        driver = _driver;
-    }
-
-    public static void click(WebElement locator) throws Exception {
+       public static void click(WebElement locator) throws Exception {
         try {
             if (locator.isDisplayed()) {
                 locator.click();

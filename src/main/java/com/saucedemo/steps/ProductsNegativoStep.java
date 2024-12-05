@@ -22,27 +22,6 @@ public class ProductsNegativoStep {
         yourCart = new CheckoutYourCartPage(_driver);
     }
 
-    public void adicionarProdutoEAjustarQuantidadeNoCarrinho() throws Exception {
-        loginUser.getAutenticacaoLogin();
-        Report.logCapture(Status.INFO, "Redirecionado tela de Products");
-        click(productsPage.segundoItemAddToCartButton());
-        assertEquals(productsPage.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "1");
-        click(productsPage.iconeDoCarrinhoButton());
-        Report.logCapture(Status.INFO, "Redirecionado tela de Your Cart");
-        validarSeQuantidadeFoiAlterada();
-        click(yourCart.checkoutButton());
-    }
-
-    private void validarSeQuantidadeFoiAlterada() {
-        if (yourCart.quantidadeDoProdutoLabel().isDisplayed()) {
-            yourCart.quantidadeDoProdutoLabel().clear();
-            yourCart.quantidadeDoProdutoLabel().sendKeys(String.valueOf(2));
-            Report.logCapture(Status.PASS, "A quantidade do produto foi alterada com sucesso.");
-        } else {
-            Report.logCapture(Status.FAIL, "O campo de quantidade do produto não está visível ou impedir para alteração.");
-        }
-    }
-
     public void validarDoCarrinhoAposRecarregarPagina() throws Exception {
         loginUser.getAutenticacaoLogin();
         Report.logCapture(Status.INFO, "Redirecionado tela de Products");

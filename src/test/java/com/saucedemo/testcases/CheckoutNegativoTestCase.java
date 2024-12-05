@@ -19,4 +19,58 @@ public class CheckoutNegativoTestCase extends BaseTest {
         CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
         checkoutNegativoStep.validarErroAoNaoPreencherCamposObrigatorios();
     }
+
+    @Test(
+            description = "CT-003, Tentar continuar preenchendo apenas o campo FirstName",
+            groups = "{web}"
+    )
+    public void validarErroAoPreencherApenasPrimeiroNomeTest() throws Exception {
+        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
+        checkoutNegativoStep.validarErroAoPreencherSomenteCampoFirstName();
+    }
+
+    @Test(
+            description = "CT-004, Tentar continuar preenchendo apenas o campo LastName",
+            groups = "{web}"
+    )
+    public void validarErroAoPreencherApenasSobrenomeTest() throws Exception {
+        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
+        checkoutNegativoStep.validarErroAoPreencherSomenteCampoLastName();
+    }
+
+    @Test(
+            description = "CT-005, Tentar continuar preenchendo apenas o campo PostalCode",
+            groups = "{web}"
+    )
+    public void validarErroAoPreencherApenasCodigoPostalTest() throws Exception {
+        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
+        checkoutNegativoStep.validarErroAoPreencherSomenteCampoPostalCode();
+    }
+
+    @Test(
+            description = "CT-006, Tentar continuar preenchendo os campos obrigatórios com apenas 2 caracteres",
+            groups = "{web}"
+    )
+    public void validarErroAoPreencherOsCamposApenasDoisCaracteresTest() throws Exception {
+        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
+        checkoutNegativoStep.validarErroAoPreencherOsCamposMaximoDoisCaracteres();
+    }
+
+    @Test(
+            description = "CT-007, Tentar continuar preenchendo os campos obrigatórios com mais de caracteres permitidos",
+            groups = "{web}"
+    )
+    public void validarErroAoPreencherCamposComExcessoDeCaracteresTest() throws Exception {
+        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
+        checkoutNegativoStep.validarErroAoPreencherCamposComExcessoDeCaracteres();
+    }
+
+    @Test(
+            description = "CT-008, Tentar continuar preenchendo os campos obrigatórios com números ou caracteres especiais",
+            groups = "{web}"
+    )
+    public void validarErroAoPreencherCamposComNumeroECaracteresEspeciaisTest() throws Exception {
+        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
+        checkoutNegativoStep.validarErroAoPreencherCamposComNumeroECaracteresEspeciais();
+    }
 }

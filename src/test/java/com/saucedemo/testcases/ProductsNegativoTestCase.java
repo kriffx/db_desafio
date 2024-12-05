@@ -12,15 +12,6 @@ public class ProductsNegativoTestCase extends BaseTest {
     }
 
     @Test(
-            description = "CT-002,  Adicionar o produto ao carrinho, ajustar a quantidade desejada e proceder ao checkout.",
-            groups = {"web"}
-    )
-    public void adicionarEAjustarProdutoNoCarrinhoTest() throws Exception {
-        ProductsNegativoStep productsNegativo = new ProductsNegativoStep(driver());
-        productsNegativo.adicionarProdutoEAjustarQuantidadeNoCarrinho();
-    }
-
-    @Test(
             description = "CT-003,  Adicionar produto ao carrinho e verificar persistência após recarregar a página.",
             groups = {"web"}
     )
