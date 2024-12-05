@@ -22,14 +22,14 @@ public class AutenticacaoECheckout {
     }
 
     public void getAutenticacaoLogin() throws Exception {
-        Report.log(Status.INFO, "Tela de login");
+        Report.logCapture(Status.INFO, "Tela de login");
         login.usernameTextField().sendKeys(UserDataDTO.userData().getUsername());
         login.passwordTextField().sendKeys(UserDataDTO.userData().getPassword());
         click(login.loginButton());
     }
 
     public void getItensNoCarrinhoECheckout() throws Exception {
-        Report.log(Status.INFO,"Redirecionado tela de Products");
+        Report.logCapture(Status.INFO,"Redirecionado para a tela de Products");
         click(products.primeiroItemAddToCartButton());
         click(products.iconeDoCarrinhoButton());
         click(yourCart.checkoutButton());

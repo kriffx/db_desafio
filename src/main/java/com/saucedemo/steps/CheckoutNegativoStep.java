@@ -20,18 +20,18 @@ public class CheckoutNegativoStep {
     }
 
     public void validarErroAoNaoPreencherCamposObrigatorios() throws Exception {
-        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         autenticacaoECheckout.getAutenticacaoLogin();
         autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         click(yourInformation.continueCheckoutButton());
         assertEquals(yourInformation.mensagemDeErroCamposObrigatoriosLabel(), "Error: First Name is required");
         Report.logCapture(Status.INFO, "obter a mensagem de erro");
     }
 
     public void validarErroAoPreencherSomenteCampoFirstName() throws Exception {
-        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         autenticacaoECheckout.getAutenticacaoLogin();
         autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.firstNameTextField().sendKeys(UserDataDTO.userData().getFirstName());
         click(yourInformation.continueCheckoutButton());
         assertEquals(yourInformation.mensagemDeErroCamposObrigatoriosLabel(), "Error: Last Name is required");
@@ -39,9 +39,9 @@ public class CheckoutNegativoStep {
     }
 
     public void validarErroAoPreencherSomenteCampoLastName() throws Exception {
-        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         autenticacaoECheckout.getAutenticacaoLogin();
         autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.lastNameTextField().sendKeys(UserDataDTO.userData().getLastName());
         click(yourInformation.continueCheckoutButton());
         assertEquals(yourInformation.mensagemDeErroCamposObrigatoriosLabel(), "Error: First Name is required");
@@ -49,9 +49,9 @@ public class CheckoutNegativoStep {
     }
 
     public void validarErroAoPreencherSomenteCampoPostalCode() throws Exception {
-        Report.logCapture(Status.INFO, "Redirecionado tela de Checkout: Your Information");
         autenticacaoECheckout.getAutenticacaoLogin();
         autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.lastNameTextField().sendKeys(UserDataDTO.userData().getLastName());
         click(yourInformation.continueCheckoutButton());
         assertEquals(yourInformation.mensagemDeErroCamposObrigatoriosLabel(), "Error: First Name is required");
@@ -59,9 +59,9 @@ public class CheckoutNegativoStep {
     }
 
     public void validarErroAoPreencherOsCamposMaximoDoisCaracteres() throws Exception {
-        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         autenticacaoECheckout.getAutenticacaoLogin();
         autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.firstNameTextField().sendKeys("Ri");
         yourInformation.lastNameTextField().sendKeys("Co");
         yourInformation.postalCodeTextField().sendKeys("90");
@@ -69,9 +69,9 @@ public class CheckoutNegativoStep {
     }
 
     public void validarErroAoPreencherCamposComExcessoDeCaracteres() throws Exception {
-        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         autenticacaoECheckout.getAutenticacaoLogin();
         autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.firstNameTextField().sendKeys(Faker.instance().lorem().characters(300));
         yourInformation.lastNameTextField().sendKeys(Faker.instance().lorem().characters(300));
         yourInformation.postalCodeTextField().sendKeys(Faker.instance().lorem().characters(300));
@@ -79,9 +79,9 @@ public class CheckoutNegativoStep {
     }
 
     public void validarErroAoPreencherCamposComNumeroECaracteresEspeciais() throws Exception {
-        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         autenticacaoECheckout.getAutenticacaoLogin();
         autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.firstNameTextField().sendKeys("Ric@rd0!");
         yourInformation.lastNameTextField().sendKeys("C0st@123");
         yourInformation.postalCodeTextField().sendKeys("#90619@90");
@@ -97,8 +97,7 @@ public class CheckoutNegativoStep {
                             "Comportamento esperado: bloquear a continuidade para finalizar a compra."
             );
         } else {
-            Report.logCapture(
-                    Status.PASS,
+            Report.logCapture(Status.PASS,
                     "O sistema corretamente bloqueou a continuidade para finalizar a compra ao detectar campos com apenas dois caracteres."
             );
         }

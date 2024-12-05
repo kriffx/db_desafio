@@ -23,7 +23,7 @@ public class Element {
 
     public static void assertEquals(WebElement locator, String expected) throws Exception {
         try {
-            Assert.assertEquals(expected, locator.getText());
+            Assert.assertEquals(locator.getText(), expected);
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
                  TimeoutException e) {
             throw new Exception(e);
@@ -32,7 +32,7 @@ public class Element {
 
     public static void assertEquals(WebElement locator, String expected, String message) throws Exception {
         try {
-            Assert.assertEquals(expected, locator.getText(), message);
+            Assert.assertEquals(locator.getText(), expected, message);
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
                  TimeoutException e) {
             throw new Exception(e);

@@ -24,11 +24,11 @@ public class ProductsNegativoStep {
 
     public void validarDoCarrinhoAposRecarregarPagina() throws Exception {
         loginUser.getAutenticacaoLogin();
-        Report.logCapture(Status.INFO, "Redirecionado tela de Products");
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(productsPage.segundoItemAddToCartButton());
         driver.navigate().refresh();
         click(productsPage.iconeDoCarrinhoButton());
-        Report.logCapture(Status.INFO, "Redirecionado tela de Your Cart");
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Your Cart");
         driver.navigate().refresh();
         validarSeItensMantemNoCarrinho();
     }
@@ -41,21 +41,21 @@ public class ProductsNegativoStep {
 
     public void adicionarERemoverProdutosDoCarrinho() throws Exception {
         loginUser.getAutenticacaoLogin();
-        Report.logCapture(Status.INFO, "Redirecionado tela de Products");
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(productsPage.primeiroItemAddToCartButton());
         click(productsPage.segundoItemAddToCartButton());
         click(productsPage.iconeDoCarrinhoButton());
-        Report.logCapture(Status.INFO, "Redirecionado tela de Your Cart");
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Your Cart");
         validarSeCarrinhoEstaVazio();
     }
 
     public void adicionarRemoverProdutosEValidarFinalizacaoCompraComCarrinhoVazio() throws Exception {
         loginUser.getAutenticacaoLogin();
-        Report.logCapture(Status.INFO, "Redirecionado tela de Products");
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(productsPage.primeiroItemAddToCartButton());
         click(productsPage.segundoItemAddToCartButton());
         click(productsPage.iconeDoCarrinhoButton());
-        Report.logCapture(Status.INFO, "Redirecionado tela de Your Cart");
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Your Cart");
         validarSeCarrinhoEstaVazio();
         if(yourCart.checkoutButton().isDisplayed()) {
             click(yourCart.checkoutButton());

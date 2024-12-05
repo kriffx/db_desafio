@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import static com.saucedemo.widgets.Element.*;
 
 public class GerenciadorDeLoginEProdutos {
-    private WebDriver driver;
     private final AutenticacaoLoginPage loginUsuario;
     private final ProductsPage products;
     private final CheckoutYourCartPage yourCart;
@@ -17,14 +16,13 @@ public class GerenciadorDeLoginEProdutos {
     private final CheckoutOverviewPage overview;
     private final FinishPage finish;
 
-    public GerenciadorDeLoginEProdutos(WebDriver _driver) {
-        driver = _driver;
-        loginUsuario = new AutenticacaoLoginPage(_driver);
-        products = new ProductsPage(_driver);
-        yourCart = new CheckoutYourCartPage(_driver);
-        yourInformation = new CheckoutYourInformationPage(_driver);
-        overview = new CheckoutOverviewPage(_driver);
-        finish = new FinishPage(_driver);
+    public GerenciadorDeLoginEProdutos(WebDriver driver) {
+        loginUsuario = new AutenticacaoLoginPage(driver);
+        products = new ProductsPage(driver);
+        yourCart = new CheckoutYourCartPage(driver);
+        yourInformation = new CheckoutYourInformationPage(driver);
+        overview = new CheckoutOverviewPage(driver);
+        finish = new FinishPage(driver);
     }
 
     public void iniciaFluxoDeCompra() throws Exception {
