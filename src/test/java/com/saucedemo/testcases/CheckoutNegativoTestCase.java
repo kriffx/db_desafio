@@ -73,4 +73,13 @@ public class CheckoutNegativoTestCase extends BaseTest {
         CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
         checkoutNegativoStep.validarErroAoPreencherCamposComNumeroECaracteresEspeciais();
     }
+
+    @Test(
+            description = "CT-009, Tentar continuar preenchendo o campo postal code com letras",
+            groups = "{web}"
+    )
+    public void validarErroAoPreencherCamposComLetrasTest() throws Exception {
+        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
+        checkoutNegativoStep.validarErroAoPreencherCampoPostalCodeComLetras();
+    }
 }

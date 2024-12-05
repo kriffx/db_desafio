@@ -88,6 +88,16 @@ public class CheckoutNegativoStep {
         validarOSistemaBloqueiaAContinuidade();
     }
 
+    public void validarErroAoPreencherCampoPostalCodeComLetras() throws Exception {
+        autenticacaoECheckout.getAutenticacaoLogin();
+        autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
+        yourInformation.firstNameTextField().sendKeys(UserDataDTO.userData().getFirstName());
+        yourInformation.lastNameTextField().sendKeys(UserDataDTO.userData().getLastName());
+        yourInformation.postalCodeTextField().sendKeys("ASDAFDAASD");
+        validarOSistemaBloqueiaAContinuidade();
+    }
+
     private void validarOSistemaBloqueiaAContinuidade() throws Exception {
         if (yourInformation.continueCheckoutButton().isEnabled()) {
             Report.logCapture(Status.INFO, "Os campos ja foram preenchidos");

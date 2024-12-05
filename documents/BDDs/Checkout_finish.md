@@ -46,7 +46,6 @@ CT-002
 
 Como um usuário.
 Quero ser avisado quando deixar de preencher campos obrigatórios no checkout.
-Para corrigir as informações antes de continuar.
 
 **Cenário:** Tentar continuar sem preencher os campos obrigatórios
 
@@ -71,7 +70,6 @@ CT-003
 
 Como um usuário.
 Quero ser avisado ao tentar continuar sem preencher todos os campos obrigatórios.
-Para corrigir as informações antes de prosseguir.
 
 **Cenário:** Tentar continuar preenchendo apenas o campo "FirstName"
 
@@ -96,7 +94,7 @@ CT-004
 
 Como um usuário.
 Quero ser avisado ao tentar continuar sem preencher todos os campos obrigatórios.
-Para corrigir as informações antes de prosseguir.
+
 
 **Cenário:** Tentar continuar preenchendo apenas o campo "LastName"
 
@@ -118,9 +116,9 @@ Para corrigir as informações antes de prosseguir.
 CT-005
 
 **Funcionalidade:** Validação de campos obrigatórios no checkout
+
 Como um usuário
 Quero ser avisado ao tentar continuar sem preencher todos os campos obrigatórios
-Para corrigir as informações antes de prosseguir.
 
 **Cenário:** Tentar continuar preenchendo apenas o campo "Postal code"
 
@@ -142,9 +140,9 @@ Para corrigir as informações antes de prosseguir.
 CT-006
 
 **Funcionalidade:** Validação de tamanho mínimo nos campos obrigatórios do checkout
+
 Como um usuário
 Quero ser avisado ao tentar continuar com informações abaixo do tamanho mínimo permitido
-Para corrigir os dados e prosseguir com o checkout.
 
 **Cenário:** Tentar continuar preenchendo os campos obrigatórios com apenas 2 caracteres
 
@@ -168,7 +166,6 @@ CT-007
 **Funcionalidade:** Validação de tamanho máximo nos campos obrigatórios do checkout
 Como um usuário
 Quero ser avisado ao tentar continuar com informações que excedem o limite máximo permitido
-Para corrigir os dados e prosseguir com o checkout.
 
 **Cenário:** Tentar continuar preenchendo os campos obrigatórios com mais de caracteres permitidos
 
@@ -193,7 +190,6 @@ CT-008
 
 Como um usuário.
 Quero ser avisado ao tentar continuar com informações que contenham números ou caracteres especiais.
-Para corrigir os dados e prosseguir com o checkout.
 
 **Cenário:** Tentar continuar preenchendo os campos obrigatórios com números e caracteres especiais
 
@@ -204,6 +200,30 @@ Para corrigir os dados e prosseguir com o checkout.
 **E** eu preencho o campo "LastName" com "C0st@123"
 
 **E** eu preencho o campo "Postal Code" com "#90619@90"
+
+**E** eu clico no botão "CONTINUE"
+
+**Então** eu devo ver uma mensagem de erro "Invalid data"
+
+**E** devo permanecer na tela "Checkout: Your Information"
+
+---
+CT-009
+
+**Funcionalidade:** Validação de inválidos no campo postal code do checkout
+
+Como um usuário.
+Quero ser avisado ao tentar continuar com informações que contenham letras.
+
+**Cenário:** Tentar continuar preenchendo o campo postal code com letras
+
+**Dado** que eu estou na tela "Checkout: Your Information"
+
+**Quando** eu preencho o campo "FirstName" com "Ricardo"
+
+**E** eu preencho o campo "LastName" com "Costa"
+
+**E** eu preencho o campo "Postal Code" com "ASDAFDAASD"
 
 **E** eu clico no botão "CONTINUE"
 
