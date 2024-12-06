@@ -59,7 +59,7 @@ Quero ser avisado quando deixar de preencher campos obrigatórios no checkout.
 
 **E** eu clico no botão "CONTINUE"
 
-**Então** eu devo ver uma mensagem de erro "Invalid data"
+**Então** eu devo ver uma mensagem de erro "First Name is required"
 
 **E** devo permanecer na tela "Checkout: Your Information"
 

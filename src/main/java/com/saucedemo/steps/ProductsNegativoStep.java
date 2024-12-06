@@ -3,7 +3,7 @@ package com.saucedemo.steps;
 import com.aventstack.extentreports.Status;
 import com.saucedemo.pageobjects.ProductsPage;
 import com.saucedemo.pageobjects.CheckoutYourCartPage;
-import com.saucedemo.support.AutenticacaoECheckout;
+import com.saucedemo.support.AuthAndCheckout;
 import com.saucedemo.utils.JsExecutor;
 import com.saucedemo.utils.Report;
 import org.openqa.selenium.WebDriver;
@@ -12,31 +12,32 @@ import static com.saucedemo.widgets.Element.*;
 
 public class ProductsNegativoStep {
     private final WebDriver driver;
-    private final AutenticacaoECheckout loginUser;
+    private final AuthAndCheckout auth;
     private final ProductsPage productsPage;
     private final CheckoutYourCartPage yourCart;
 
     public ProductsNegativoStep(WebDriver _driver) {
         driver = _driver;
-        loginUser = new AutenticacaoECheckout(_driver);
+        auth = new AuthAndCheckout(_driver);
         productsPage = new ProductsPage(_driver);
         yourCart = new CheckoutYourCartPage(_driver);
     }
 
     public void adicionarProdutoEAjustarQuantidadeNoCarrinho() throws Exception {
         Report.log(Status.INFO, "Tela de login");
-        loginUser.getAutenticacaoLogin();
+        auth.getAutenticacaoLogin();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(productsPage.segundoItemAddToCartButton());
         assertEquals(productsPage.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "1");
         click(productsPage.iconeDoCarrinhoButton());
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Your Cart");
-        JsExecutor.highlightElementWithJs(driver, yourCart.quantidadeDoProdutoLabel());
+        //JsExecutor.highlightElementWithJs(driver, yourCart.quantidadeDoProdutoLabel());
+        JsExecutor.highlight(driver, yourCart.quantidadeDoProdutoLabel());
         yourCart.quantidadeDoProdutoLabel().sendKeys("2");
     }
 
     public void validarDoCarrinhoAposRecarregarPagina() throws Exception {
-        loginUser.getAutenticacaoLogin();
+        auth.getAutenticacaoLogin();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(productsPage.segundoItemAddToCartButton());
         driver.navigate().refresh();
@@ -53,7 +54,7 @@ public class ProductsNegativoStep {
     }
 
     public void adicionarERemoverProdutosDoCarrinho() throws Exception {
-        loginUser.getAutenticacaoLogin();
+        auth.getAutenticacaoLogin();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(productsPage.primeiroItemAddToCartButton());
         click(productsPage.segundoItemAddToCartButton());
@@ -63,7 +64,7 @@ public class ProductsNegativoStep {
     }
 
     public void adicionarRemoverProdutosEValidarFinalizacaoCompraComCarrinhoVazio() throws Exception {
-        loginUser.getAutenticacaoLogin();
+        auth.getAutenticacaoLogin();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(productsPage.primeiroItemAddToCartButton());
         click(productsPage.segundoItemAddToCartButton());

@@ -20,6 +20,14 @@ public class ProductsPage {
         return wait.visibilityOf(By.cssSelector("#shopping_cart_container > a > span"));
     }
 
+    public WebElement tituloDoPrimeiroItemLabel() {
+        return wait.visibilityOf(By.cssSelector("#item_4_title_link div"));
+    }
+
+    public WebElement tituloDoPrimeiroItemButton() {
+        return wait.toBeClickable(By.id("item_4_title_link"));
+    }
+
     public WebElement primeiroItemAddToCartButton() {
         return wait.toBeClickable(By.cssSelector("div:nth-child(1) > div.pricebar > button"));
     }
@@ -30,5 +38,17 @@ public class ProductsPage {
 
     public WebElement iconeDoCarrinhoButton() {
         return wait.toBeClickable(By.id("shopping_cart_container"));
+    }
+
+    public WebElement imagePrimeiroItem() {
+        return wait.visibilityOf(By.cssSelector("#inventory_container div:nth-child(1) div.inventory_item_img"));
+    }
+
+    public WebElement removePrimeiroItemButton() {
+        return wait.toBeClickable(By.cssSelector("#inventory_container div:nth-child(1) > div.pricebar button"));
+    }
+
+    public WebElement terceiroItemAddToCartButton() {
+        return wait.toBeClickable(By.cssSelector("#inventory_container div:nth-child(2) > div.pricebar > button"));
     }
 }

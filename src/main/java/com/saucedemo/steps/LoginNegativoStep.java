@@ -3,17 +3,17 @@ package com.saucedemo.steps;
 import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 import com.saucedemo.dto.UserDataDTO;
-import com.saucedemo.pageobjects.AutenticacaoLoginPage;
+import com.saucedemo.pageobjects.AuthLoginPage;
 import com.saucedemo.utils.Report;
 import org.openqa.selenium.WebDriver;
 
 import static com.saucedemo.widgets.Element.*;
 
 public class LoginNegativoStep {
-    private final AutenticacaoLoginPage loginPage;
+    private final AuthLoginPage loginPage;
 
     public LoginNegativoStep(WebDriver driver) {
-        loginPage = new AutenticacaoLoginPage(driver);
+        loginPage = new AuthLoginPage(driver);
     }
 
     public void loginComUserNameInvalido() throws Exception {

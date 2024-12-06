@@ -17,6 +17,6 @@ Como usuário. Não consigo acessar o sistema quando minha conta está bloqueada
 
 **E** clico no botão "Login"
 
-**Então** o sistema deve exibir uma mensagem de erro indicando que a conta está bloqueada
+**Então** o sistema deve exibir uma mensagem de erro 'Epic sadface: Sorry, this user has been locked out.'
 
 **E** deve impedir o acesso ao sistema

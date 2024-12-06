@@ -9,6 +9,13 @@ public class UserDataDTO {
         dto.setFirstName("Ricardo");
         dto.setLastName("Costa");
         dto.setPostalCode("90619-900");
-        return new UserModelDTO(dto.getUsername(), dto.getPassword(), dto.getFirstName(), dto.getLastName(), dto.getPostalCode());
+        dto.setProblemUser("problem_user");
+        return new UserModelDTO(dto.getUsername(),
+                                dto.getPassword(),
+                                dto.getFirstName(),
+                                dto.getLastName(),
+                                dto.getPostalCode(),
+                                dto.getProblemUser(),
+                                dto.getLockedUser());
     }
 }

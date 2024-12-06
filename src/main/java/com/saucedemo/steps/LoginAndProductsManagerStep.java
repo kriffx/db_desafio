@@ -8,16 +8,16 @@ import org.openqa.selenium.WebDriver;
 
 import static com.saucedemo.widgets.Element.*;
 
-public class GerenciadorDeLoginEProdutos {
-    private final AutenticacaoLoginPage loginUsuario;
+public class LoginAndProductsManagerStep {
+    private final AuthLoginPage loginUsuario;
     private final ProductsPage products;
     private final CheckoutYourCartPage yourCart;
     private final CheckoutYourInformationPage yourInformation;
     private final CheckoutOverviewPage overview;
     private final FinishPage finish;
 
-    public GerenciadorDeLoginEProdutos(WebDriver driver) {
-        loginUsuario = new AutenticacaoLoginPage(driver);
+    public LoginAndProductsManagerStep(WebDriver driver) {
+        loginUsuario = new AuthLoginPage(driver);
         products = new ProductsPage(driver);
         yourCart = new CheckoutYourCartPage(driver);
         yourInformation = new CheckoutYourInformationPage(driver);

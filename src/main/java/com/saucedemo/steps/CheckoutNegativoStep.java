@@ -4,24 +4,24 @@ import com.aventstack.extentreports.Status;
 import com.github.javafaker.Faker;
 import com.saucedemo.dto.UserDataDTO;
 import com.saucedemo.pageobjects.CheckoutYourInformationPage;
-import com.saucedemo.support.AutenticacaoECheckout;
+import com.saucedemo.support.AuthAndCheckout;
 import com.saucedemo.utils.Report;
 import org.openqa.selenium.WebDriver;
 
 import static com.saucedemo.widgets.Element.*;
 
 public class CheckoutNegativoStep {
-    private final AutenticacaoECheckout autenticacaoECheckout;
+    private final AuthAndCheckout authAndCheckout;
     private final CheckoutYourInformationPage yourInformation;
 
     public CheckoutNegativoStep(WebDriver driver) {
-        autenticacaoECheckout = new AutenticacaoECheckout(driver);
+        authAndCheckout = new AuthAndCheckout(driver);
         yourInformation = new CheckoutYourInformationPage(driver);
     }
 
     public void validarErroAoNaoPreencherCamposObrigatorios() throws Exception {
-        autenticacaoECheckout.getAutenticacaoLogin();
-        autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        authAndCheckout.getAutenticacaoLogin();
+        authAndCheckout.getItensNoCarrinhoECheckout();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         click(yourInformation.continueCheckoutButton());
         assertEquals(yourInformation.mensagemDeErroCamposObrigatoriosLabel(), "Error: First Name is required");
@@ -29,8 +29,8 @@ public class CheckoutNegativoStep {
     }
 
     public void validarErroAoPreencherSomenteCampoFirstName() throws Exception {
-        autenticacaoECheckout.getAutenticacaoLogin();
-        autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        authAndCheckout.getAutenticacaoLogin();
+        authAndCheckout.getItensNoCarrinhoECheckout();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.firstNameTextField().sendKeys(UserDataDTO.userData().getFirstName());
         click(yourInformation.continueCheckoutButton());
@@ -39,8 +39,8 @@ public class CheckoutNegativoStep {
     }
 
     public void validarErroAoPreencherSomenteCampoLastName() throws Exception {
-        autenticacaoECheckout.getAutenticacaoLogin();
-        autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        authAndCheckout.getAutenticacaoLogin();
+        authAndCheckout.getItensNoCarrinhoECheckout();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.lastNameTextField().sendKeys(UserDataDTO.userData().getLastName());
         click(yourInformation.continueCheckoutButton());
@@ -49,8 +49,8 @@ public class CheckoutNegativoStep {
     }
 
     public void validarErroAoPreencherSomenteCampoPostalCode() throws Exception {
-        autenticacaoECheckout.getAutenticacaoLogin();
-        autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        authAndCheckout.getAutenticacaoLogin();
+        authAndCheckout.getItensNoCarrinhoECheckout();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.lastNameTextField().sendKeys(UserDataDTO.userData().getLastName());
         click(yourInformation.continueCheckoutButton());
@@ -59,8 +59,8 @@ public class CheckoutNegativoStep {
     }
 
     public void validarErroAoPreencherOsCamposMaximoDoisCaracteres() throws Exception {
-        autenticacaoECheckout.getAutenticacaoLogin();
-        autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        authAndCheckout.getAutenticacaoLogin();
+        authAndCheckout.getItensNoCarrinhoECheckout();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.firstNameTextField().sendKeys("Ri");
         yourInformation.lastNameTextField().sendKeys("Co");
@@ -69,8 +69,8 @@ public class CheckoutNegativoStep {
     }
 
     public void validarErroAoPreencherCamposComExcessoDeCaracteres() throws Exception {
-        autenticacaoECheckout.getAutenticacaoLogin();
-        autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        authAndCheckout.getAutenticacaoLogin();
+        authAndCheckout.getItensNoCarrinhoECheckout();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.firstNameTextField().sendKeys(Faker.instance().lorem().characters(300));
         yourInformation.lastNameTextField().sendKeys(Faker.instance().lorem().characters(300));
@@ -79,8 +79,8 @@ public class CheckoutNegativoStep {
     }
 
     public void validarErroAoPreencherCamposComNumeroECaracteresEspeciais() throws Exception {
-        autenticacaoECheckout.getAutenticacaoLogin();
-        autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        authAndCheckout.getAutenticacaoLogin();
+        authAndCheckout.getItensNoCarrinhoECheckout();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.firstNameTextField().sendKeys("Ric@rd0!");
         yourInformation.lastNameTextField().sendKeys("C0st@123");
@@ -89,8 +89,8 @@ public class CheckoutNegativoStep {
     }
 
     public void validarErroAoPreencherCampoPostalCodeComLetras() throws Exception {
-        autenticacaoECheckout.getAutenticacaoLogin();
-        autenticacaoECheckout.getItensNoCarrinhoECheckout();
+        authAndCheckout.getAutenticacaoLogin();
+        authAndCheckout.getItensNoCarrinhoECheckout();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.firstNameTextField().sendKeys(UserDataDTO.userData().getFirstName());
         yourInformation.lastNameTextField().sendKeys(UserDataDTO.userData().getLastName());
