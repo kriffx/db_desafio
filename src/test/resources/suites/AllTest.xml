@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name = "AllTest" verbose="1">
+    <test name = "Teste de todos elementos.">
+        <classes>
+            <class name="com.saucedemo.testcases.LoginERealizarACompraTestCase"/>
+            <class name="com.saucedemo.testcases.LoginNegativoTestCase"/>
+            <class name="com.saucedemo.testcases.ProductsNegativoTestCase"/>
+            <class name="com.saucedemo.testcases.CheckoutNegativoTestCase"/>
+            <class name="com.saucedemo.testcases.UserProblemTest"/>
+        </classes>
+    </test>
+</suite>

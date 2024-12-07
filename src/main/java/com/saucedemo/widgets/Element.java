@@ -6,13 +6,8 @@ import org.openqa.selenium.*;
 import org.testng.Assert;
 
 public class Element {
-    private WebDriver driver;
 
-    public Element(WebDriver _driver) {
-        driver = _driver;
-    }
-
-    public static void click(WebElement locator) throws Exception {
+       public static void click(WebElement locator) throws Exception {
         try {
             if (locator.isDisplayed()) {
                 locator.click();
@@ -28,7 +23,16 @@ public class Element {
 
     public static void assertEquals(WebElement locator, String expected) throws Exception {
         try {
-            Assert.assertEquals(expected, locator.getText());
+            Assert.assertEquals(locator.getText(), expected);
+        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
+                 TimeoutException e) {
+            throw new Exception(e);
+        }
+    }
+
+    public static void assertEquals(WebElement locator, String expected, String message) throws Exception {
+        try {
+            Assert.assertEquals(locator.getText(), expected, message);
         } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
                  TimeoutException e) {
             throw new Exception(e);

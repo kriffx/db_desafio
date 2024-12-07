@@ -83,7 +83,7 @@ Abra a pasta de report e selecione o arquivo report.html.
 Clique com o botão direito do mouse, vá em "Open in", depois "Browser" e escolha o navegador da sua preferência.
 
 #### Screenshot:
-![](src/main/resources/img/report_login_e_finalizar.png)
+![](src/main/resources/img/report_full_test.png)
 
 ---  
 Feito com bug, café e muito esforço :beetle::coffee:

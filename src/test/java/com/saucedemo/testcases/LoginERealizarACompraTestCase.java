@@ -1,6 +1,6 @@
 package com.saucedemo.testcases;
 
-import com.saucedemo.steps.GerenciadorDeLoginEProdutos;
+import com.saucedemo.steps.LoginAndProductsManagerStep;
 import com.saucedemo.utils.BaseTest;
 import com.saucedemo.webdrivers.DriverManager;
 import org.openqa.selenium.WebDriver;
@@ -14,11 +14,11 @@ public class LoginERealizarACompraTestCase extends BaseTest {
 
 
     @Test(
-            description = "Efetua login e finalizar a compra.",
+            description = "CT-001, Efetua login e finalizar a compra.",
             groups = {"web"}
     )
     public void fluxoDeCompraComSucessoTest() throws Exception {
-        GerenciadorDeLoginEProdutos loginERealizarACompra = new GerenciadorDeLoginEProdutos(driver());
+        LoginAndProductsManagerStep loginERealizarACompra = new LoginAndProductsManagerStep(driver());
         loginERealizarACompra.iniciaFluxoDeCompra();
     }
 }

@@ -8,23 +8,21 @@ import org.openqa.selenium.WebDriver;
 
 import static com.saucedemo.widgets.Element.*;
 
-public class GerenciadorDeLoginEProdutos {
-    private WebDriver driver;
-    private final LoginPage loginUsuario;
+public class LoginAndProductsManagerStep {
+    private final AuthLoginPage loginUsuario;
     private final ProductsPage products;
-    private final YourCartPage yourCart;
+    private final CheckoutYourCartPage yourCart;
     private final CheckoutYourInformationPage yourInformation;
     private final CheckoutOverviewPage overview;
     private final FinishPage finish;
 
-    public GerenciadorDeLoginEProdutos(WebDriver _driver) {
-        driver = _driver;
-        loginUsuario = new LoginPage(_driver);
-        products = new ProductsPage(_driver);
-        yourCart = new YourCartPage(_driver);
-        yourInformation = new CheckoutYourInformationPage(_driver);
-        overview = new CheckoutOverviewPage(_driver);
-        finish = new FinishPage(_driver);
+    public LoginAndProductsManagerStep(WebDriver driver) {
+        loginUsuario = new AuthLoginPage(driver);
+        products = new ProductsPage(driver);
+        yourCart = new CheckoutYourCartPage(driver);
+        yourInformation = new CheckoutYourInformationPage(driver);
+        overview = new CheckoutOverviewPage(driver);
+        finish = new FinishPage(driver);
     }
 
     public void iniciaFluxoDeCompra() throws Exception {
@@ -46,19 +44,19 @@ public class GerenciadorDeLoginEProdutos {
     private void adicionaItensAoCarrinho() throws Exception {
         Report.logCapture(Status.INFO, "Redirecionado para tela de Products");
         assertEquals(products.tituloProductNoTopoLabel(), "Products");
-        products.mochilaProdutoAddToCartButton().click();
-        products.jaquetaProdutoAddToCartButton().click();
+        click(products.primeiroItemAddToCartButton());
+        click(products.segundoItemAddToCartButton());
         assertEquals(products.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "2");
-        products.iconeDoCarrinhoButton().click();
+        click(products.iconeDoCarrinhoButton());
     }
 
     private void verificaProdutosNoCarrinhoECheckout() throws Exception {
         Report.logCapture(Status.INFO, "Redirecionado para tela de Your Cart");
         assertEquals(yourCart.tituloYourCartNoTopoLabel(), "Your Cart");
-        assertEquals(yourCart.verificarONomeDoProdutoMochilaLabel(), "Sauce Labs Backpack");
-        assertEquals(yourCart.verificarOValorDoProdutoMochilaLabel(), "29.99");
-        assertEquals(yourCart.verificarONomeDoProdutoJaquetaLabel(), "Sauce Labs Fleece Jacket");
-        assertEquals(yourCart.verificarOValorDoProdutoJaquetaLabel(), "49.99");
+        assertEquals(yourCart.verificarONomeDoPrimeiroItemLabel(), "Sauce Labs Backpack");
+        assertEquals(yourCart.verificarOValorDoPrimeiroItemLabel(), "29.99");
+        assertEquals(yourCart.verificarONomeDoSegundoItemLabel(), "Sauce Labs Fleece Jacket");
+        assertEquals(yourCart.verificarOValorDoSegundoItemLabel(), "49.99");
         click(yourCart.checkoutButton());
     }
 
