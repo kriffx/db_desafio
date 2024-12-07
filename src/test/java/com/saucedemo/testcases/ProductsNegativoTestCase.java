@@ -13,7 +13,7 @@ public class ProductsNegativoTestCase extends BaseTest {
 
     @Test(
             description = "CT-002,  Adicionar o produto ao carrinho, ajustar a quantidade desejada e proceder ao checkout.",
-            groups = {"web"}
+            groups = {"web", "BUG"}
     )
     public void adicionarEAjustarProdutoNoCarrinhoTest() throws Exception {
         ProductsNegativoStep productsNegativo = new ProductsNegativoStep(driver());
@@ -40,7 +40,7 @@ public class ProductsNegativoTestCase extends BaseTest {
 
     @Test(
             description = "CT-002, Adicionar produto ao carrinho e remover todos os itens e impedir finalizar a compra.",
-            groups = {"web"}
+            groups = {"web", "BUG"}
     )
     public void adicionarRemoverItensEValidarCarrinhoVazioTest() throws Exception {
         ProductsNegativoStep productsNegativo = new ProductsNegativoStep(driver());
