@@ -30,7 +30,7 @@ Para concluir minha compra com os itens desejados.
 **Então** eu devo ser redirecionado para a tela "Checkout: Your Information"
 
 ---
-CT-003
+CT-001
 
 **Funcionalidade:** Persistência do carrinho de compras
 Como um usuário
@@ -58,7 +58,7 @@ Para continuar minha compra sem perder informações.
 **Então** as quantidades, nomes e descrições dos produtos no carrinho devem continuar corretas
 
 ---
-CT-004
+CT-002
 
 **Funcionalidade:** Remoção de itens do carrinho de compras
 

@@ -36,6 +36,18 @@ public class ProductsPage {
         return wait.toBeClickable(By.cssSelector("div:nth-child(4) > div.pricebar > button"));
     }
 
+    public WebElement tituloSegundoDoItemButton() {
+        return wait.toBeClickable(By.id("item_5_title_link"));
+    }
+
+    public WebElement tituloDoSegundoDoItemLabel() {
+        return wait.visibilityOf(By.cssSelector("#item_5_title_link div"));
+    }
+
+    public WebElement tituloTerceiroDoItemButton() {
+        return wait.toBeClickable(By.id("item_0_title_link"));
+    }
+
     public WebElement iconeDoCarrinhoButton() {
         return wait.toBeClickable(By.id("shopping_cart_container"));
     }

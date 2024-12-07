@@ -14,7 +14,6 @@ public class UserProblemTest extends BaseTest {
     @Test(
             description = "CT-001, Login com usuário problemático e verificação das imagens dos produtos",
             groups = {"web", "BUG"}
-
     )
     public void validarSeImagemDoItemEstaPresenteTest() throws Exception {
         UserProblemStep userProblemStep = new UserProblemStep(driver());
@@ -24,7 +23,6 @@ public class UserProblemTest extends BaseTest {
     @Test(
             description = "CT-001, Login com usuário problemático e verificação se o item foi remove ao carrinho",
             groups = {"web", "BUG"}
-
     )
     public void validarRemocaoDeItemDoCarrinhoTest() throws Exception {
         UserProblemStep userProblemStep = new UserProblemStep(driver());
@@ -35,7 +33,6 @@ public class UserProblemTest extends BaseTest {
     @Test(
             description = "CT-001, Login com usuário problemático e verificação se o nome do item está correto na pagina do item",
             groups = {"web", "BUG"}
-
     )
     public void validarNomeDoItemNaPaginaDeProductsEDeItemPorUsuarioProblemaTest() throws Exception {
         UserProblemStep userProblemStep = new UserProblemStep(driver());
@@ -43,12 +40,29 @@ public class UserProblemTest extends BaseTest {
     }
 
     @Test(
-            description = "CT-002, Login com usuário problemático e verificação se o item é adicionado ao carrinho na pagina de item",
+            description = "CT-002, Login com usuário problemático e verificação se o item é adicionado ao carrinho na pagina de products",
             groups = {"web", "BUG"}
-
     )
-    public void validarAdicionaDeItemDoCarrinhoTest() throws Exception {
+    public void validarAdicionaDeItemDoCarrinhoNaPaginaProductsTest() throws Exception {
         UserProblemStep userProblemStep = new UserProblemStep(driver());
-        userProblemStep.validarAdicionaDeItemDoCarrinhoPorUsuarioProblema();
+        userProblemStep.validarAdicaoDeItemDoCarrinhoNaPaginaDeProducts();
+    }
+
+    @Test(
+            description = "CT-003, Login com usuário problemático e verificação se o item é adicionado ao carrinho na pagina de item",
+            groups = {"web", "BUG"}
+    )
+    public void validarAdicionaDeItemDoCarrinhoNaPaginaItemTest() throws Exception {
+        UserProblemStep userProblemStep = new UserProblemStep(driver());
+        userProblemStep.validarAdicaoDeItemNaPaginaDoItem();
+    }
+
+    @Test(
+            description = "CT-001, Login com usuário problemático e validação do fluxo de login e manipulação de itens no carrinho",
+            groups = {"web", "BUG"}
+    )
+    public void validarFluxoDeLoginEManipulacaoDoCarrinhoTest() throws Exception {
+        UserProblemStep userProblemStep = new UserProblemStep(driver());
+        userProblemStep.validarFluxoDeLoginEManipulacaoDoCarrinho();
     }
 }

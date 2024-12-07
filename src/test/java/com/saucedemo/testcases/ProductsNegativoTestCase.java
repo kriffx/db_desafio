@@ -21,7 +21,7 @@ public class ProductsNegativoTestCase extends BaseTest {
     }
 
     @Test(
-            description = "CT-003,  Adicionar produto ao carrinho e verificar persistência após recarregar a página.",
+            description = "CT-001,  Adicionar produto ao carrinho e verificar persistência após recarregar a página.",
             groups = {"web"}
     )
     public void persistenciaDoItemNoCarrinhoTest() throws Exception {
@@ -30,7 +30,7 @@ public class ProductsNegativoTestCase extends BaseTest {
     }
 
     @Test(
-            description = "CT-004, Adicionar produto ao carrinho e remover todos os itens.",
+            description = "CT-001, Adicionar produto ao carrinho e remover todos os itens.",
             groups = {"web"}
     )
     public void adicionarProdutoERemoverItensDoCarrinhoTest() throws Exception {
@@ -39,7 +39,7 @@ public class ProductsNegativoTestCase extends BaseTest {
     }
 
     @Test(
-            description = "CT-005, Adicionar produto ao carrinho e remover todos os itens e impedir finalizar a compra.",
+            description = "CT-002, Adicionar produto ao carrinho e remover todos os itens e impedir finalizar a compra.",
             groups = {"web"}
     )
     public void adicionarRemoverItensEValidarCarrinhoVazioTest() throws Exception {

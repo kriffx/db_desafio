@@ -20,7 +20,11 @@ public class InventoryItemPage {
         return wait.visibilityOf(By.cssSelector("#shopping_cart_container span"));
     }
 
-    public WebElement addToCardNaTelaDeItemButton() {
+    public WebElement addToCardButton() {
         return wait.toBeClickable(By.cssSelector("#inventory_item_container div div button"));
+    }
+
+    public WebElement iconeDoCarrinhoButton() {
+        return wait.toBeClickable(By.id("shopping_cart_container"));
     }
 }

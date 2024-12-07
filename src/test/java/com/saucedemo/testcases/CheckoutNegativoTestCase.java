@@ -57,7 +57,7 @@ public class CheckoutNegativoTestCase extends BaseTest {
     }
 
     @Test(
-            description = "CT-007, Tentar continuar preenchendo os campos obrigatórios com mais de caracteres permitidos",
+            description = "CT-007, Tentar continuar preenchendo os campos obrigatórios com mais de caracteres",
             groups = "{web}"
     )
     public void validarErroAoPreencherCamposComExcessoDeCaracteresTest() throws Exception {
