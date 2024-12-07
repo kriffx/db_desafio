@@ -91,6 +91,7 @@ public class UserProblemStep {
         assertEquals(inventoryItem.tituloDoItemLabel(), "Sauce Labs Fleece Jacket",
                 "O nome do item não está correto, ele é bem diferente do nome do item anterior.");
         click(inventoryItem.addToCardButton());
+        assertEquals(inventoryItem.quatidadeDoItemNoIconeDoCarrinhoLabel(), "1", "Adicionou o item ao carrinho");
         click(inventoryItem.iconeDoCarrinhoButton());
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Your Cart");
     }
