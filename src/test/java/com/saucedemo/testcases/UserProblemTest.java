@@ -29,7 +29,6 @@ public class UserProblemTest extends BaseTest {
         userProblemStep.validarRemocaoDeItemDoCarrinhoPorUsuarioProblema();
     }
 
-
     @Test(
             description = "CT-001, Login com usuário problemático e verificação se o nome do item está correto na pagina do item",
             groups = {"web", "BUG"}
