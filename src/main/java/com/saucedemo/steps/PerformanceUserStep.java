@@ -23,6 +23,6 @@ public class PerformanceUserStep {
         login.usernameTextField().sendKeys(UserDataDTO.userData().getPerformanceUser());
         login.passwordTextField().sendKeys(UserDataDTO.userData().getPassword());
         click(login.loginButton());
-        pageLoadTime(driver);
+        pageLoadTime(driver, 3000);
     }
 }

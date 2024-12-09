@@ -7,6 +7,7 @@ import com.saucedemo.pageobjects.CheckoutYourInformationPage;
 import com.saucedemo.support.AuthAndCheckout;
 import com.saucedemo.utils.Report;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import static com.saucedemo.widgets.Element.*;
 
@@ -99,17 +100,17 @@ public class CheckoutFailureStep {
     }
 
     private void validarOSistemaBloqueiaAContinuidade() throws Exception {
-        if (yourInformation.continueCheckoutButton().isEnabled()) {
-            Report.logCapture(Status.INFO, "Os campos ja foram preenchidos");
-            click(yourInformation.continueCheckoutButton());
-            Report.logCapture(Status.FAIL,
-                    "O sistema permitiu o preenchimento dos campos obrigatórios com dados invalidos e prosseguiu para a finalização da compra. " +
-                            "Comportamento esperado: bloquear a continuidade para finalizar a compra."
+        boolean isContinueButtonDisplayed = yourInformation.continueCheckoutButton().isDisplayed();
+        if (isContinueButtonDisplayed) {
+            Report.logCapture(Status.FAIL, "O sistema permitiu a continuidade para finalizar a compra com campos obrigatórios preenchidos de forma inválida. " +
+                            "Comportamento esperado: bloquear a continuidade."
             );
+            click(yourInformation.continueCheckoutButton());
         } else {
-            Report.logCapture(Status.PASS,
-                    "O sistema corretamente bloqueou a continuidade para finalizar a compra ao detectar campos com apenas dois caracteres."
+            Report.logCapture(Status.PASS, "O sistema bloqueou corretamente a continuidade da compra ao detectar campos obrigatórios com dados inválidos."
             );
         }
+        Assert.assertFalse(isContinueButtonDisplayed, "O botão de continuidade não deveria estar visível para campos inválidos."
+        );
     }
 }

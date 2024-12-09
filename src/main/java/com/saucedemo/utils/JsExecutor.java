@@ -4,7 +4,6 @@ import com.aventstack.extentreports.Status;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 public class JsExecutor {
 
@@ -25,13 +24,24 @@ public class JsExecutor {
         return loaded;
     }
 
-    public static void pageLoadTime(WebDriver driver) {
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        Long loadEventEnd = (Long) jse.executeScript("return window.performance.timing.loadEventEnd;");
-        Long navigationStart = (Long) jse.executeScript("return window.performance.timing.navigationStart;");
+    public static void pageLoadTime(WebDriver driver, long timeLimitMs) {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        long loadEventEnd = (long) jsExecutor.executeScript("return window.performance.timing.loadEventEnd;");
+        long navigationStart = (long) jsExecutor.executeScript("return window.performance.timing.navigationStart;");
+        if (loadEventEnd == 0) {
+            Report.logCapture(Status.FAIL, "A página ainda não terminou de carregar ou 'loadEventEnd' não está acessível.");
+            throw new IllegalStateException("'loadEventEnd' é zero. Não foi possível calcular o tempo de carregamento.");
+        }
         long loadTime = loadEventEnd - navigationStart;
         Report.logCapture(Status.INFO, "Tempo de carregamento da página: " + loadTime + "ms");
-        long timeLimit = 3000;
-        Assert.assertTrue(loadTime <= timeLimit, "O tempo de carregamento excedeu o limite esperado. Tempo: " + loadTime + "ms");
+        if (loadTime > timeLimitMs) {
+            String mensagemErro = String.format(
+                    "Tempo de carregamento excedeu o limite. Tempo: %dms, Limite: %dms",
+                    loadTime, timeLimitMs
+            );
+            Report.logCapture(Status.FAIL, mensagemErro);
+            throw new AssertionError(mensagemErro);
+        }
+        Report.logCapture(Status.PASS, "O tempo de carregamento da página está dentro do limite esperado.");
     }
 }
