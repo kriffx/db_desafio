@@ -19,7 +19,7 @@
 :small_blue_diamond:[Suace Demo Table](documents/scenarios/Cenarios%20de%20Sauce%20Demo.xlsx)
 
 #### :bookmark_tabs: BDDs:
-:small_blue_diamond:[Login and Purchase](documents/BDDs/LoginAndPurchase)
+:small_blue_diamond:[Login and Purchase](documents/BDDs/LoginAndPurchase.md)
 
 :small_blue_diamond:[Login](documents/BDDs/Login.md)
 
