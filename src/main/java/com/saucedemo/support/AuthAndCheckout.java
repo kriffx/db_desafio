@@ -21,21 +21,21 @@ public class AuthAndCheckout {
         yourCart = new CheckoutYourCartPage(driver);
     }
 
-    public void getAutenticacaoLogin() throws Exception {
+    public void realizarLogin() throws Exception {
         Report.logCapture(Status.INFO, "Tela de login");
         login.usernameTextField().sendKeys(UserDataDTO.userData().getUsername());
         login.passwordTextField().sendKeys(UserDataDTO.userData().getPassword());
         click(login.loginButton());
     }
 
-    public void getItensNoCarrinhoECheckout() throws Exception {
+    public void adicionarItensAoCarrinho() throws Exception {
         Report.logCapture(Status.INFO,"Redirecionado para a tela de Products");
         click(products.primeiroItemAddToCartButton());
         click(products.iconeDoCarrinhoButton());
         click(yourCart.checkoutButton());
     }
 
-    public void getContaDoUsuarioProblema() throws Exception {
+    public void realizarLoginComoUsuarioComProblema() throws Exception {
         Report.logCapture(Status.INFO, "Tela de login");
         login.usernameTextField().sendKeys(UserDataDTO.userData().getProblemUser());
         login.passwordTextField().sendKeys(UserDataDTO.userData().getPassword());

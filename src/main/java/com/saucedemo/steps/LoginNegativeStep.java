@@ -9,10 +9,10 @@ import org.openqa.selenium.WebDriver;
 
 import static com.saucedemo.widgets.Element.*;
 
-public class LoginNegativoStep {
+public class LoginNegativeStep {
     private final AuthLoginPage loginPage;
 
-    public LoginNegativoStep(WebDriver driver) {
+    public LoginNegativeStep(WebDriver driver) {
         loginPage = new AuthLoginPage(driver);
     }
 
@@ -79,6 +79,15 @@ public class LoginNegativoStep {
         Report.logCapture(Status.INFO, "Tela de login");
         loginPage.usernameTextField().sendKeys(Faker.instance().lorem().characters(3));
         loginPage.passwordTextField().sendKeys(Faker.instance().lorem().characters(3));
+        click(loginPage.loginButton());
+        assertEquals(loginPage.obterMensagemDeErrorLabel(), "Epic sadface: Username and password do not match any user in this service");
+        Report.logCapture(Status.INFO, "obter a mensagem de erro");
+    }
+
+    public void loginComUsernameEAPasswordComCaracteresEspeciais() throws Exception {
+        Report.logCapture(Status.INFO, "Tela de login");
+        loginPage.usernameTextField().sendKeys("@#$%¨&*");
+        loginPage.passwordTextField().sendKeys("*(#$#(");
         click(loginPage.loginButton());
         assertEquals(loginPage.obterMensagemDeErrorLabel(), "Epic sadface: Username and password do not match any user in this service");
         Report.logCapture(Status.INFO, "obter a mensagem de erro");

@@ -57,11 +57,11 @@ public class UserProblemTest extends BaseTest {
     }
 
     @Test(
-            description = "CT-001, Login com usuário problemático e validação do fluxo de login e manipulação de itens no carrinho",
+            description = "CT-001, Login com usuário problemático e validação do fluxo de login e de itens no carrinho",
             groups = {"web", "BUG"}
     )
     public void validarFluxoDeLoginEManipulacaoDoCarrinhoTest() throws Exception {
         UserProblemStep userProblemStep = new UserProblemStep(driver());
-        userProblemStep.validarFluxoDeLoginEManipulacaoDoCarrinho();
+        userProblemStep.validarFluxoDeLoginEDoCarrinho();
     }
 }

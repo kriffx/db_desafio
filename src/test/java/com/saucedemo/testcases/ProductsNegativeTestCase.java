@@ -1,12 +1,12 @@
 package com.saucedemo.testcases;
 
-import com.saucedemo.steps.ProductsNegativoStep;
+import com.saucedemo.steps.ProductsNegativeStep;
 import com.saucedemo.utils.BaseTest;
 import com.saucedemo.webdrivers.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-public class ProductsNegativoTestCase extends BaseTest {
+public class ProductsNegativeTestCase extends BaseTest {
     private WebDriver driver() {
         return DriverManager.getDriver();
     }
@@ -16,7 +16,7 @@ public class ProductsNegativoTestCase extends BaseTest {
             groups = {"web", "BUG"}
     )
     public void adicionarEAjustarProdutoNoCarrinhoTest() throws Exception {
-        ProductsNegativoStep productsNegativo = new ProductsNegativoStep(driver());
+        ProductsNegativeStep productsNegativo = new ProductsNegativeStep(driver());
         productsNegativo.adicionarProdutoEAjustarQuantidadeNoCarrinho();
     }
 
@@ -25,7 +25,7 @@ public class ProductsNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void persistenciaDoItemNoCarrinhoTest() throws Exception {
-        ProductsNegativoStep productsNegativo = new ProductsNegativoStep(driver());
+        ProductsNegativeStep productsNegativo = new ProductsNegativeStep(driver());
         productsNegativo.validarDoCarrinhoAposRecarregarPagina();
     }
 
@@ -34,7 +34,7 @@ public class ProductsNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void adicionarProdutoERemoverItensDoCarrinhoTest() throws Exception {
-        ProductsNegativoStep productsNegativo = new ProductsNegativoStep(driver());
+        ProductsNegativeStep productsNegativo = new ProductsNegativeStep(driver());
         productsNegativo.adicionarERemoverProdutosDoCarrinho();
     }
 
@@ -43,7 +43,7 @@ public class ProductsNegativoTestCase extends BaseTest {
             groups = {"web", "BUG"}
     )
     public void adicionarRemoverItensEValidarCarrinhoVazioTest() throws Exception {
-        ProductsNegativoStep productsNegativo = new ProductsNegativoStep(driver());
+        ProductsNegativeStep productsNegativo = new ProductsNegativeStep(driver());
         productsNegativo.adicionarRemoverProdutosEValidarFinalizacaoCompraComCarrinhoVazio();
     }
 }

@@ -10,12 +10,15 @@ public class UserDataDTO {
         dto.setLastName("Costa");
         dto.setPostalCode("90619-900");
         dto.setProblemUser("problem_user");
+        dto.setLockedUser("locked_out_user");
+        dto.setPerformanceUser("performance_glitch_user");
         return new UserModelDTO(dto.getUsername(),
                                 dto.getPassword(),
                                 dto.getFirstName(),
                                 dto.getLastName(),
                                 dto.getPostalCode(),
                                 dto.getProblemUser(),
-                                dto.getLockedUser());
+                                dto.getLockedUser(),
+                                dto.getPerformanceUser());
     }
 }

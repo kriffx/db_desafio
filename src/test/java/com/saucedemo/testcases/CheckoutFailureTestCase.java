@@ -1,12 +1,12 @@
 package com.saucedemo.testcases;
 
-import com.saucedemo.steps.CheckoutNegativoStep;
+import com.saucedemo.steps.CheckoutFailureStep;
 import com.saucedemo.utils.BaseTest;
 import com.saucedemo.webdrivers.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-public class CheckoutNegativoTestCase extends BaseTest {
+public class CheckoutFailureTestCase extends BaseTest {
     private WebDriver driver() {
         return DriverManager.getDriver();
     }
@@ -16,8 +16,8 @@ public class CheckoutNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void validarErroCamposObrigatoriosCheckoutTest() throws Exception {
-        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
-        checkoutNegativoStep.validarErroAoNaoPreencherCamposObrigatorios();
+        CheckoutFailureStep checkoutFailureStep = new CheckoutFailureStep(driver());
+        checkoutFailureStep.validarErroAoNaoPreencherCamposObrigatorios();
     }
 
     @Test(
@@ -25,8 +25,8 @@ public class CheckoutNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void validarErroAoPreencherApenasPrimeiroNomeTest() throws Exception {
-        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
-        checkoutNegativoStep.validarErroAoPreencherSomenteCampoFirstName();
+        CheckoutFailureStep checkoutFailureStep = new CheckoutFailureStep(driver());
+        checkoutFailureStep.validarErroAoPreencherSomenteCampoFirstName();
     }
 
     @Test(
@@ -34,8 +34,8 @@ public class CheckoutNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void validarErroAoPreencherApenasSobrenomeTest() throws Exception {
-        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
-        checkoutNegativoStep.validarErroAoPreencherSomenteCampoLastName();
+        CheckoutFailureStep checkoutFailureStep = new CheckoutFailureStep(driver());
+        checkoutFailureStep.validarErroAoPreencherSomenteCampoLastName();
     }
 
     @Test(
@@ -43,8 +43,8 @@ public class CheckoutNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void validarErroAoPreencherApenasCodigoPostalTest() throws Exception {
-        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
-        checkoutNegativoStep.validarErroAoPreencherSomenteCampoPostalCode();
+        CheckoutFailureStep checkoutFailureStep = new CheckoutFailureStep(driver());
+        checkoutFailureStep.validarErroAoPreencherSomenteCampoPostalCode();
     }
 
     @Test(
@@ -52,8 +52,8 @@ public class CheckoutNegativoTestCase extends BaseTest {
             groups = {"web", "BUG"}
     )
     public void validarErroAoPreencherOsCamposApenasDoisCaracteresTest() throws Exception {
-        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
-        checkoutNegativoStep.validarErroAoPreencherOsCamposMaximoDoisCaracteres();
+        CheckoutFailureStep checkoutFailureStep = new CheckoutFailureStep(driver());
+        checkoutFailureStep.validarErroAoPreencherOsCamposMaximoDoisCaracteres();
     }
 
     @Test(
@@ -61,8 +61,8 @@ public class CheckoutNegativoTestCase extends BaseTest {
             groups = {"web", "BUG"}
     )
     public void validarErroAoPreencherCamposComExcessoDeCaracteresTest() throws Exception {
-        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
-        checkoutNegativoStep.validarErroAoPreencherCamposComExcessoDeCaracteres();
+        CheckoutFailureStep checkoutFailureStep = new CheckoutFailureStep(driver());
+        checkoutFailureStep.validarErroAoPreencherCamposComExcessoDeCaracteres();
     }
 
     @Test(
@@ -70,8 +70,8 @@ public class CheckoutNegativoTestCase extends BaseTest {
             groups = {"web", "BUG"}
     )
     public void validarErroAoPreencherCamposComNumeroECaracteresEspeciaisTest() throws Exception {
-        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
-        checkoutNegativoStep.validarErroAoPreencherCamposComNumeroECaracteresEspeciais();
+        CheckoutFailureStep checkoutFailureStep = new CheckoutFailureStep(driver());
+        checkoutFailureStep.validarErroAoPreencherCamposComNumeroECaracteresEspeciais();
     }
 
     @Test(
@@ -79,7 +79,7 @@ public class CheckoutNegativoTestCase extends BaseTest {
             groups = {"web", "BUG"}
     )
     public void validarErroAoPreencherCamposComLetrasTest() throws Exception {
-        CheckoutNegativoStep checkoutNegativoStep = new CheckoutNegativoStep(driver());
-        checkoutNegativoStep.validarErroAoPreencherCampoPostalCodeComLetras();
+        CheckoutFailureStep checkoutFailureStep = new CheckoutFailureStep(driver());
+        checkoutFailureStep.validarErroAoPreencherCampoPostalCodeComLetras();
     }
 }

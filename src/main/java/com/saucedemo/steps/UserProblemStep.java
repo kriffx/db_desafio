@@ -9,6 +9,7 @@ import com.saucedemo.utils.Report;
 import org.openqa.selenium.WebDriver;
 
 import static com.saucedemo.widgets.Element.*;
+import static org.testng.AssertJUnit.assertTrue;
 
 public class UserProblemStep {
     private final WebDriver driver;
@@ -26,22 +27,24 @@ public class UserProblemStep {
     }
 
     public void validarSeImagemDoItemEstaPresente() throws Exception {
-        autenticacao.getContaDoUsuarioProblema();
+        autenticacao.realizarLoginComoUsuarioComProblema();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         verificarImagemDoPrimeiroItem();
     }
 
     private void verificarImagemDoPrimeiroItem() {
         boolean imagemPresente = jse.imagePresent(driver, products.imagePrimeiroItem());
-        if (imagemPresente) {
-            Report.logCapture(Status.PASS, "A imagem do item esta visível");
-        } else {
-            Report.logCapture(Status.FAIL, "A Imagem do item nao esta visível");
+        try {
+            assertTrue("A imagem do item não está visível", imagemPresente);
+            Report.logCapture(Status.PASS, "A imagem do item está visível");
+        } catch (AssertionError e) {
+            Report.logCapture(Status.FAIL, "A imagem do item não está visível");
+            throw e;
         }
     }
 
     public void validarRemocaoDeItemDoCarrinhoPorUsuarioProblema() throws Exception {
-        autenticacao.getContaDoUsuarioProblema();
+        autenticacao.realizarLoginComoUsuarioComProblema();
         Report.logCapture(Status.INFO, "Redirecionado para tela de Products");
         click(products.primeiroItemAddToCartButton());
         assertEquals(products.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "1");
@@ -51,7 +54,7 @@ public class UserProblemStep {
     }
 
     public void validarNomeDeItemNaPaginaDeProductsEDeItem() throws Exception {
-        autenticacao.getContaDoUsuarioProblema();
+        autenticacao.realizarLoginComoUsuarioComProblema();
         Report.logCapture(Status.INFO, "Redirecionado para tela de Products");
         assertEquals(products.tituloDoPrimeiroItemLabel(), "Sauce Labs Backpack", "O nome do item está correto.");
         click(products.tituloDoPrimeiroItemButton());
@@ -61,7 +64,7 @@ public class UserProblemStep {
     }
 
     public void validarAdicaoDeItemDoCarrinhoNaPaginaDeProducts() throws Exception {
-        autenticacao.getContaDoUsuarioProblema();
+        autenticacao.realizarLoginComoUsuarioComProblema();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(products.terceiroItemAddToCartButton());
         assertEquals(products.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "1",
@@ -72,7 +75,7 @@ public class UserProblemStep {
     }
 
     public void validarAdicaoDeItemNaPaginaDoItem() throws Exception {
-        autenticacao.getContaDoUsuarioProblema();
+        autenticacao.realizarLoginComoUsuarioComProblema();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(products.primeiroItemAddToCartButton());
         click(products.tituloTerceiroDoItemButton());
@@ -82,8 +85,8 @@ public class UserProblemStep {
                 "O ícone do carrinho não atualizou para 2 após adicionou mais um item.");
     }
 
-    public void validarFluxoDeLoginEManipulacaoDoCarrinho() throws Exception {
-        autenticacao.getContaDoUsuarioProblema();
+    public void validarFluxoDeLoginEDoCarrinho() throws Exception {
+        autenticacao.realizarLoginComoUsuarioComProblema();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         assertEquals(products.tituloDoSegundoDoItemLabel(), "Sauce Labs Fleece Jacket");
         click(products.tituloSegundoDoItemButton());
