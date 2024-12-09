@@ -4,7 +4,6 @@ import com.aventstack.extentreports.Status;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 public class JsExecutor {
 
@@ -25,7 +24,7 @@ public class JsExecutor {
         return loaded;
     }
 
-    public static void verificarTempoDeCarregamento(WebDriver driver, long timeLimitMs) {
+    public static void pageLoadTime(WebDriver driver, long timeLimitMs) {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
         long loadEventEnd = (long) jsExecutor.executeScript("return window.performance.timing.loadEventEnd;");
         long navigationStart = (long) jsExecutor.executeScript("return window.performance.timing.navigationStart;");
@@ -45,5 +44,4 @@ public class JsExecutor {
         }
         Report.logCapture(Status.PASS, "O tempo de carregamento da página está dentro do limite esperado.");
     }
-
 }
