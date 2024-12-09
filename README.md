@@ -13,17 +13,32 @@
 #### O projeto é exclusivamente para [DBServer](https://db.tec.br/).
 
 ---  
-### :open_file_folder: Cenários, Casos de Testes e  BDDs:
+### :open_file_folder: Cenários, Casos de Testes,  BDDs e Bugs:
 
-#### :bookmark_tabs: Cenário e Casos de Testes:
-:small_blue_diamond:[Suace Demo Table](https://github.com/loopfagundes/db_desafio/tree/develop/documents/scenarios)
+#### :bookmark_tabs: Cenários e Casos de Testes:
+:small_blue_diamond:[Suace Demo Table](documents/scenarios/Cenarios%20de%20Sauce%20Demo.xlsx)
 
 #### :bookmark_tabs: BDDs:
-:small_blue_diamond:[Login](https://github.com/loopfagundes/db_desafio/blob/develop/documents/BDDs/login.md)
+:small_blue_diamond:[Login and Purchase](documents/BDDs/LoginAndPurchase.md)
 
-:small_blue_diamond:[Products - Your Cart](https://github.com/loopfagundes/db_desafio/blob/develop/documents/BDDs/products.md)
+:small_blue_diamond:[Login](documents/BDDs/Login.md)
 
-:small_blue_diamond:[Checkout - Finish](https://github.com/loopfagundes/db_desafio/blob/develop/documents/BDDs/checkout_finish.md)
+:small_blue_diamond:[Products - Your Cart](documents/BDDs/Products.md)
+
+:small_blue_diamond:[Checkout - Finish](documents/BDDs/Checkout_Finish.md)
+
+:small_blue_diamond:[Locked User](documents/BDDs/LockedUser.md)
+
+#### :bookmark_tabs: Bugs:
+:small_blue_diamond: [Manual Testing](documents/bugs/manual%20testing/Descrição%20e%20o%20título%20do%20produto%20-%20BUG.pdf)
+
+:small_blue_diamond: [Products - Your Cart](documents/bugs/product_your%20cart)
+
+:small_blue_diamond: [Checkout - Finish](documents/bugs/checkout_finish)
+
+:small_blue_diamond: [Problem User](documents/bugs/problem_user)
+
+:small_blue_diamond: [Performance User](documents/bugs/performance_user)
 
 ---  
 
@@ -83,7 +98,7 @@ Abra a pasta de report e selecione o arquivo report.html.
 Clique com o botão direito do mouse, vá em "Open in", depois "Browser" e escolha o navegador da sua preferência.
 
 #### Screenshot:
-![](src/main/resources/img/report_full_test.png)
+![](src/main/resources/img/report_All_Test.png)
 
 ---  
 Feito com bug, café e muito esforço :beetle::coffee:

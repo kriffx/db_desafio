@@ -13,12 +13,15 @@ public class UserModelDTO {
     String postalCode;
     String problemUser;
     String lockedUser;
+    String performanceUser;
 
     public UserModelDTO() {
 
     }
 
-    public UserModelDTO(String username, String password, String firstName, String lastName, String postalCode, String problemUser, String lockedUser) {
+    public UserModelDTO(String username, String password,
+                        String firstName, String lastName, String postalCode,
+                        String problemUser, String lockedUser, String performanceUser) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -26,5 +29,6 @@ public class UserModelDTO {
         this.postalCode = postalCode;
         this.problemUser = problemUser;
         this.lockedUser = lockedUser;
+        this.performanceUser = performanceUser;
     }
 }

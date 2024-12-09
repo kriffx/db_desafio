@@ -1,12 +1,12 @@
 package com.saucedemo.testcases;
 
-import com.saucedemo.steps.LoginNegativoStep;
+import com.saucedemo.steps.LoginNegativeStep;
 import com.saucedemo.utils.BaseTest;
 import com.saucedemo.webdrivers.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-public class LoginNegativoTestCase extends BaseTest {
+public class LoginInvalidCredentialsTestCase extends BaseTest {
     private WebDriver driver() {
         return DriverManager.getDriver();
     }
@@ -16,8 +16,8 @@ public class LoginNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void loginComUserNameInvalidoTest() throws Exception {
-        LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
-        loginNegativoStep.loginComUserNameInvalido();
+        LoginNegativeStep loginNegativeStep = new LoginNegativeStep(driver());
+        loginNegativeStep.loginComUserNameInvalido();
     }
 
     @Test(
@@ -25,8 +25,8 @@ public class LoginNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void loginComPasswordInvalidoTest() throws Exception {
-        LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
-        loginNegativoStep.loginComPasswordInvalido();
+        LoginNegativeStep loginNegativeStep = new LoginNegativeStep(driver());
+        loginNegativeStep.loginComPasswordInvalido();
     }
 
     @Test(
@@ -34,8 +34,8 @@ public class LoginNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void loginSemPreencherASenhaTest() throws Exception {
-        LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
-        loginNegativoStep.loginSemSenha();
+        LoginNegativeStep loginNegativeStep = new LoginNegativeStep(driver());
+        loginNegativeStep.loginSemSenha();
     }
 
     @Test(
@@ -43,8 +43,8 @@ public class LoginNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void loginSemPreencherOUsernameTest() throws Exception {
-        LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
-        loginNegativoStep.loginSemUsername();
+        LoginNegativeStep loginNegativeStep = new LoginNegativeStep(driver());
+        loginNegativeStep.loginSemUsername();
     }
 
     @Test(
@@ -52,8 +52,8 @@ public class LoginNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void loginSemPreencherOUsernameEAPasswordTest() throws Exception {
-        LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
-        loginNegativoStep.loginSemUsernameEAPassword();
+        LoginNegativeStep loginNegativeStep = new LoginNegativeStep(driver());
+        loginNegativeStep.loginSemUsernameEAPassword();
     }
 
     @Test(
@@ -61,8 +61,8 @@ public class LoginNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void loginComOUsernameEAPasswordInvalidosTest() throws Exception {
-        LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
-        loginNegativoStep.loginComUsernameEAPasswordInvalidos();
+        LoginNegativeStep loginNegativeStep = new LoginNegativeStep(driver());
+        loginNegativeStep.loginComUsernameEAPasswordInvalidos();
     }
 
     @Test(
@@ -70,8 +70,8 @@ public class LoginNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void loginComOUsernameEAPassword255CaracteresTest() throws Exception {
-        LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
-        loginNegativoStep.loginComUsernameEAPasswordMaisDe255Caracteres();
+        LoginNegativeStep loginNegativeStep = new LoginNegativeStep(driver());
+        loginNegativeStep.loginComUsernameEAPasswordMaisDe255Caracteres();
     }
 
     @Test(
@@ -79,7 +79,16 @@ public class LoginNegativoTestCase extends BaseTest {
             groups = {"web"}
     )
     public void loginComOUsernameEAPassword3CaracteresTest() throws Exception {
-        LoginNegativoStep loginNegativoStep = new LoginNegativoStep(driver());
-        loginNegativoStep.loginComUsernameEAPasswordMaximoDe3Caracteres();
+        LoginNegativeStep loginNegativeStep = new LoginNegativeStep(driver());
+        loginNegativeStep.loginComUsernameEAPasswordMaximoDe3Caracteres();
+    }
+
+    @Test(
+            description = "CT-010, Tentar login com username e senha de 3 caracteres.",
+            groups = {"web"}
+    )
+    public void loginComOUsernameEAPasswordComCaracteresEspeciaisTest() throws Exception {
+        LoginNegativeStep loginNegativeStep = new LoginNegativeStep(driver());
+        loginNegativeStep.loginComUsernameEAPasswordComCaracteresEspeciais();
     }
 }

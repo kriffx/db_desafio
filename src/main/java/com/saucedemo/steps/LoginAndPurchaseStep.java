@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 
 import static com.saucedemo.widgets.Element.*;
 
-public class LoginAndProductsManagerStep {
+public class LoginAndPurchaseStep {
     private final AuthLoginPage loginUsuario;
     private final ProductsPage products;
     private final CheckoutYourCartPage yourCart;
@@ -16,7 +16,7 @@ public class LoginAndProductsManagerStep {
     private final CheckoutOverviewPage overview;
     private final FinishPage finish;
 
-    public LoginAndProductsManagerStep(WebDriver driver) {
+    public LoginAndPurchaseStep(WebDriver driver) {
         loginUsuario = new AuthLoginPage(driver);
         products = new ProductsPage(driver);
         yourCart = new CheckoutYourCartPage(driver);

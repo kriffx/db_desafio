@@ -2,11 +2,13 @@
 <suite name = "AllTest" verbose="1">
     <test name = "Teste de todos elementos.">
         <classes>
-            <class name="com.saucedemo.testcases.LoginERealizarACompraTestCase"/>
-            <class name="com.saucedemo.testcases.LoginNegativoTestCase"/>
-            <class name="com.saucedemo.testcases.ProductsNegativoTestCase"/>
-            <class name="com.saucedemo.testcases.CheckoutNegativoTestCase"/>
+            <class name="com.saucedemo.testcases.LoginAndPurchaseTestCase"/>
+            <class name="com.saucedemo.testcases.LoginInvalidCredentialsTestCase"/>
+            <class name="com.saucedemo.testcases.ProductsNegativeTestCase"/>
+            <class name="com.saucedemo.testcases.CheckoutFailureTestCase"/>
             <class name="com.saucedemo.testcases.UserProblemTest"/>
+            <class name="com.saucedemo.testcases.LockedUserTestCase"/>
+            <class name="com.saucedemo.testcases.PerformanceTestCase"/>
         </classes>
     </test>
 </suite>

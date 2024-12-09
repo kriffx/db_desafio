@@ -211,37 +211,16 @@ CT-010
 **Funcionalidade:** Login do Usuário
 
 Como um usuário.
-Quero verificar se o sistema aceita username com caracteres especiais.
-Para garantir que usernames com caracteres especiais sejam aceitos.
+Quero verificar se o sistema aceita username e a senha com caracteres especiais.
+Para garantir que username e senha com caracteres especiais não sejam aceitos.
 
-**Cenário:** Tentar login com username com caracteres especiais e senha válida
-
-**Dado** que eu estou na página de login
-
-**Quando** eu preencho o campo "Username" com "standard_user"
-
-**E** eu preencho o campo "Password" com "secret_sauce"
-
-**E** eu clico no botão "Login"
-
-**Então** eu devo ser redirecionado para a página de Products
-
----
-CT-011
-
-**Funcionalidade:** Login do Usuário
-
-Como um usuário.
-Quero verificar se o sistema aceita senha com caracteres especiais.
-Para garantir que senhas com caracteres especiais sejam aceitas.
-
-**Cenário:** Tentar login com username válido e senha com caracteres especiais
+**Cenário:** Tentar login com username e senha com caracteres especiais
 
 **Dado** que eu estou na página de login
 
-**Quando** eu preencho o campo "Username" com "standard_user"
+**Quando** eu preencho o campo "Username" com "@#$%¨&*"
 
-**E** eu preencho o campo "Password" com "secret_sauce"
+**E** eu preencho o campo "Password" com "*(#$#("
 
 **E** eu clico no botão "Login"
 

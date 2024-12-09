@@ -1,8 +1,10 @@
 package com.saucedemo.utils;
 
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 public class JsExecutor {
 
@@ -21,5 +23,15 @@ public class JsExecutor {
             loaded = (boolean) result;
         }
         return loaded;
+    }
+
+    public static void pageLoadTime(WebDriver driver) {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        Long loadEventEnd = (Long) jse.executeScript("return window.performance.timing.loadEventEnd;");
+        Long navigationStart = (Long) jse.executeScript("return window.performance.timing.navigationStart;");
+        long loadTime = loadEventEnd - navigationStart;
+        Report.logCapture(Status.INFO, "Tempo de carregamento da página: " + loadTime + "ms");
+        long timeLimit = 3000;
+        Assert.assertTrue(loadTime <= timeLimit, "O tempo de carregamento excedeu o limite esperado. Tempo: " + loadTime + "ms");
     }
 }

@@ -58,7 +58,7 @@ Para continuar minha compra sem perder informações.
 **Então** as quantidades, nomes e descrições dos produtos no carrinho devem continuar corretas
 
 ---
-CT-002
+CT-001
 
 **Funcionalidade:** Remoção de itens do carrinho de compras
 

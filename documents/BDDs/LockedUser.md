@@ -7,7 +7,7 @@ CT-001
 
 Como usuário. Não consigo acessar o sistema quando minha conta está bloqueada. Para garantir a segurança dos acessos
 
-**Cenário:** Tentativa de login com conta bloqueada
+**Cenário:** Valida o bloqueio de login ao tentar autenticar com um usuário bloqueado
 
 **Dado** que estou na página de login
 

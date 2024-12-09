@@ -10,13 +10,13 @@ import org.openqa.selenium.WebDriver;
 
 import static com.saucedemo.widgets.Element.*;
 
-public class ProductsNegativoStep {
+public class ProductsNegativeStep {
     private final WebDriver driver;
     private final AuthAndCheckout auth;
     private final ProductsPage productsPage;
     private final CheckoutYourCartPage yourCart;
 
-    public ProductsNegativoStep(WebDriver _driver) {
+    public ProductsNegativeStep(WebDriver _driver) {
         driver = _driver;
         auth = new AuthAndCheckout(_driver);
         productsPage = new ProductsPage(_driver);
@@ -25,7 +25,7 @@ public class ProductsNegativoStep {
 
     public void adicionarProdutoEAjustarQuantidadeNoCarrinho() throws Exception {
         Report.log(Status.INFO, "Tela de login");
-        auth.getAutenticacaoLogin();
+        auth.realizarLogin();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(productsPage.segundoItemAddToCartButton());
         assertEquals(productsPage.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "1");
@@ -37,7 +37,7 @@ public class ProductsNegativoStep {
     }
 
     public void validarDoCarrinhoAposRecarregarPagina() throws Exception {
-        auth.getAutenticacaoLogin();
+        auth.realizarLogin();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(productsPage.segundoItemAddToCartButton());
         driver.navigate().refresh();
@@ -54,7 +54,7 @@ public class ProductsNegativoStep {
     }
 
     public void adicionarERemoverProdutosDoCarrinho() throws Exception {
-        auth.getAutenticacaoLogin();
+        auth.realizarLogin();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(productsPage.primeiroItemAddToCartButton());
         click(productsPage.segundoItemAddToCartButton());
@@ -64,7 +64,7 @@ public class ProductsNegativoStep {
     }
 
     public void adicionarRemoverProdutosEValidarFinalizacaoCompraComCarrinhoVazio() throws Exception {
-        auth.getAutenticacaoLogin();
+        auth.realizarLogin();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(productsPage.primeiroItemAddToCartButton());
         click(productsPage.segundoItemAddToCartButton());
