@@ -28,10 +28,10 @@ public class ProductsNegativeStep {
         auth.realizarLogin();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
         click(productsPage.segundoItemAddToCartButton());
-        assertEquals(productsPage.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "1");
+        assertEquals(productsPage.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "1",
+                "A quantidade do item foi ajustado correta.");
         click(productsPage.iconeDoCarrinhoButton());
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Your Cart");
-        //JsExecutor.highlightElementWithJs(driver, yourCart.quantidadeDoProdutoLabel());
         JsExecutor.highlight(driver, yourCart.quantidadeDoProdutoLabel());
         yourCart.quantidadeDoProdutoLabel().sendKeys("2");
     }
@@ -48,9 +48,12 @@ public class ProductsNegativeStep {
     }
 
     private void validarSeItensMantemNoCarrinho() throws Exception {
-        assertEquals(yourCart.quantidadeDoProdutoLabel(), "1");
-        assertEquals(yourCart.verificarONomeDoSegundoItemLabel(), "Sauce Labs Fleece Jacket");
-        assertEquals(yourCart.descricoesDoProdutoLabel(), "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.");
+        assertEquals(yourCart.quantidadeDoProdutoLabel(), "1", "A quantidade do item não está correta");
+        assertEquals(yourCart.verificarONomeDoSegundoItemLabel(), "Sauce Labs Fleece Jacket",
+                "O nome do segundo item não está correta");
+        assertEquals(yourCart.descricoesDoProdutoLabel(),
+                "It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.",
+                "As descrições do item estão incorretas.");
     }
 
     public void adicionarERemoverProdutosDoCarrinho() throws Exception {
@@ -73,7 +76,8 @@ public class ProductsNegativeStep {
         validarSeCarrinhoEstaVazio();
         if (yourCart.checkoutButton().isDisplayed()) {
             click(yourCart.checkoutButton());
-            Report.logCapture(Status.FAIL, "O sistema permitiu itens vazios no carrinho e prosseguiu para finalizar a compra. O sistema deverá impedir o botão quando os itens estão vazios no carrinho.");
+            Report.logCapture(Status.FAIL,
+                    "O sistema permitiu itens vazios no carrinho e prosseguiu para finalizar a compra. O sistema deverá impedir o botão quando os itens estão vazios no carrinho.");
         }
     }
 
@@ -85,8 +89,10 @@ public class ProductsNegativeStep {
             Report.logCapture(Status.PASS, "Os itens do carrinho estão vazios.");
         } else {
             Report.logCapture(Status.FAIL, "Os itens do carrinho não estão vazios.");
-            assertEquals(yourCart.verificarONomeDoPrimeiroItemLabel(), "Sauce Labs Backpack", "O primeiro item deveria estar vazio.");
-            assertEquals(yourCart.verificarONomeDoSegundoItemLabel(), "Sauce Labs Fleece Jacket", "O segundo item deveria estar vazio.");
+            assertEquals(yourCart.verificarONomeDoPrimeiroItemLabel(), "Sauce Labs Backpack",
+                    "O primeiro item deveria estar vazio.");
+            assertEquals(yourCart.verificarONomeDoSegundoItemLabel(), "Sauce Labs Fleece Jacket",
+                    "O segundo item deveria estar vazio.");
         }
     }
 }

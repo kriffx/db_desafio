@@ -47,7 +47,7 @@ public class UserProblemStep {
         autenticacao.realizarLoginComoUsuarioComProblema();
         Report.logCapture(Status.INFO, "Redirecionado para tela de Products");
         click(products.primeiroItemAddToCartButton());
-        assertEquals(products.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "1");
+        assertEquals(products.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "1", "A quantidade do item no icone do carrinho não está correta.");
         click(products.removePrimeiroItemButton());
         assertEquals(products.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "0",
                 "O ícone do carrinho não atualizou para 0 após remover o item. O botão de 'REMOVE' não está funcionando corretamente.");
@@ -88,7 +88,7 @@ public class UserProblemStep {
     public void validarFluxoDeLoginEDoCarrinho() throws Exception {
         autenticacao.realizarLoginComoUsuarioComProblema();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Products");
-        assertEquals(products.tituloDoSegundoDoItemLabel(), "Sauce Labs Fleece Jacket");
+        assertEquals(products.tituloDoSegundoDoItemLabel(), "Sauce Labs Fleece Jacket", "O nome do segundo item não está correta.");
         click(products.tituloSegundoDoItemButton());
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Item");
         assertEquals(inventoryItem.tituloDoItemLabel(), "Sauce Labs Fleece Jacket",

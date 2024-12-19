@@ -21,15 +21,6 @@ public class Element {
         }
     }
 
-    public static void assertEquals(WebElement locator, String expected) throws Exception {
-        try {
-            Assert.assertEquals(locator.getText(), expected);
-        } catch (InvalidElementStateException | NoSuchElementException | StaleElementReferenceException |
-                 TimeoutException e) {
-            throw new Exception(e);
-        }
-    }
-
     public static void assertEquals(WebElement locator, String expected, String message) throws Exception {
         try {
             Assert.assertEquals(locator.getText(), expected, message);

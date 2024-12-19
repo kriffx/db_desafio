@@ -20,6 +20,6 @@ public class LockedUserStep {
         login.usernameTextField().sendKeys(UserDataDTO.userData().getLockedUser());
         login.passwordTextField().sendKeys(UserDataDTO.userData().getPassword());
         click(login.loginButton());
-        assertEquals(login.obterMensagemDeErrorLabel(), "Epic sadface: Sorry, this user has been locked out.");
+        assertEquals(login.obterMensagemDeErrorLabel(), "Epic sadface: Sorry, this user has been locked out.", "A mensagem de erro ao bloquear o usuário está incorreta.");
     }
 }
