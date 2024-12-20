@@ -25,9 +25,13 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      # Compilar projeto com Maven
-      - name: Build with Maven
-        run: mvn clean install
+      # Clean projeto 
+      - name: Clean Maven
+        run: mvn clean
+
+      # Compile com Maven
+      - name: Compile Maven
+        run: mvn compile
 
       # Roda testes
       - name: Run Tests
