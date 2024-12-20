@@ -25,7 +25,7 @@ public class CheckoutFailureStep {
         authAndCheckout.adicionarItensAoCarrinho();
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         click(yourInformation.continueCheckoutButton());
-        assertEquals(yourInformation.mensagemDeErroCamposObrigatoriosLabel(), "Error: First Name is required");
+        assertEquals(yourInformation.mensagemDeErroCamposObrigatoriosLabel(), "Error: First Name is required", "Os campos são obrigatórios e foram preenchidos corretamente.");
         Report.logCapture(Status.INFO, "obter a mensagem de erro");
     }
 
@@ -35,7 +35,7 @@ public class CheckoutFailureStep {
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.firstNameTextField().sendKeys(UserDataDTO.userData().getFirstName());
         click(yourInformation.continueCheckoutButton());
-        assertEquals(yourInformation.mensagemDeErroCamposObrigatoriosLabel(), "Error: Last Name is required");
+        assertEquals(yourInformation.mensagemDeErroCamposObrigatoriosLabel(), "Error: Last Name is required", "O campo 'LastName' é obrigatório e foi preenchido corretamente.");
         Report.logCapture(Status.INFO, "obter a mensagem de erro");
     }
 
@@ -45,7 +45,7 @@ public class CheckoutFailureStep {
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.lastNameTextField().sendKeys(UserDataDTO.userData().getLastName());
         click(yourInformation.continueCheckoutButton());
-        assertEquals(yourInformation.mensagemDeErroCamposObrigatoriosLabel(), "Error: First Name is required");
+        assertEquals(yourInformation.mensagemDeErroCamposObrigatoriosLabel(), "Error: First Name is required", "O campo 'LastName' é obrigatório e foi preenchido corretamente.");
         Report.logCapture(Status.INFO, "obter a mensagem de erro");
     }
 
@@ -55,7 +55,7 @@ public class CheckoutFailureStep {
         Report.logCapture(Status.INFO, "Redirecionado para a tela de Checkout: Your Information");
         yourInformation.lastNameTextField().sendKeys(UserDataDTO.userData().getLastName());
         click(yourInformation.continueCheckoutButton());
-        assertEquals(yourInformation.mensagemDeErroCamposObrigatoriosLabel(), "Error: First Name is required");
+        assertEquals(yourInformation.mensagemDeErroCamposObrigatoriosLabel(), "Error: First Name is required", "O campo 'Zip/PostalCode' é obrigatório e foi preenchido corretamente.");
         Report.logCapture(Status.INFO, "obter a mensagem de erro");
     }
 

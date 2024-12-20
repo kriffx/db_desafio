@@ -43,26 +43,26 @@ public class LoginAndPurchaseStep {
 
     private void adicionaItensAoCarrinho() throws Exception {
         Report.logCapture(Status.INFO, "Redirecionado para tela de Products");
-        assertEquals(products.tituloProductNoTopoLabel(), "Products");
+        assertEquals(products.tituloProductNoTopoLabel(), "Products", "O titulo exibida na pagina está incorreta");
         click(products.primeiroItemAddToCartButton());
         click(products.segundoItemAddToCartButton());
-        assertEquals(products.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "2");
+        assertEquals(products.quantidadesDosProdutosNoIconeDoCarrinhoLabel(), "2", "As quantidades do item no icone do carrinho está incorreta.");
         click(products.iconeDoCarrinhoButton());
     }
 
     private void verificaProdutosNoCarrinhoECheckout() throws Exception {
         Report.logCapture(Status.INFO, "Redirecionado para tela de Your Cart");
-        assertEquals(yourCart.tituloYourCartNoTopoLabel(), "Your Cart");
-        assertEquals(yourCart.verificarONomeDoPrimeiroItemLabel(), "Sauce Labs Backpack");
-        assertEquals(yourCart.verificarOValorDoPrimeiroItemLabel(), "29.99");
-        assertEquals(yourCart.verificarONomeDoSegundoItemLabel(), "Sauce Labs Fleece Jacket");
-        assertEquals(yourCart.verificarOValorDoSegundoItemLabel(), "49.99");
+        assertEquals(yourCart.tituloYourCartNoTopoLabel(), "Your Cart", "O titulo exibida na pagina está incorreta");
+        assertEquals(yourCart.verificarONomeDoPrimeiroItemLabel(), "Sauce Labs Backpack", "O nome do primeiro item está incorreta");
+        assertEquals(yourCart.verificarOValorDoPrimeiroItemLabel(), "29.99", "O valor do primeiro item está incorreta.");
+        assertEquals(yourCart.verificarONomeDoSegundoItemLabel(), "Sauce Labs Fleece Jacket", "O nome do segundo item está incorreta.");
+        assertEquals(yourCart.verificarOValorDoSegundoItemLabel(), "49.99", "O valor do segundo item está incorreta.");
         click(yourCart.checkoutButton());
     }
 
     private void preencheInformacoesDeCheckout() throws Exception {
         Report.logCapture(Status.INFO, "Redirecionado para tela de Checkout: Your Information");
-        assertEquals(yourInformation.tituloCheckoutYourInformationNoTopoLabel(), "Checkout: Your Information");
+        assertEquals(yourInformation.tituloCheckoutYourInformationNoTopoLabel(), "Checkout: Your Information", "O titulo exibida na pagina está incorreta");
         yourInformation.firstNameTextField().sendKeys(UserDataDTO.dto.getFirstName());
         yourInformation.lastNameTextField().sendKeys(UserDataDTO.dto.getLastName());
         yourInformation.postalCodeTextField().sendKeys(UserDataDTO.dto.getPostalCode());
@@ -71,7 +71,7 @@ public class LoginAndPurchaseStep {
 
     private void verificarEFinalizarCheckout() throws Exception {
         Report.logCapture(Status.INFO, "Redircionado para tela de Checkout: Overview");
-        assertEquals(overview.tituloCheckoutOverviewLabel(), "Checkout: Overview");
+        assertEquals(overview.tituloCheckoutOverviewLabel(), "Checkout: Overview", "O titulo exibida na pagina está incorreta");
         verificarPrimeiroItemCheckout();
         verificarSegundoItemCheckout();
         verificarInformacoesCheckout();
@@ -79,29 +79,29 @@ public class LoginAndPurchaseStep {
     }
 
     private void verificarPrimeiroItemCheckout() throws Exception {
-        assertEquals(overview.quantidadePrimeiroItemLabel(), "1");
-        assertEquals(overview.nomeDoPrimeiroItemCheckoutLabel(), "Sauce Labs Backpack");
-        assertEquals(overview.valorDoPrimeiroItemCheckoutLabel(), "$29.99");
+        assertEquals(overview.quantidadePrimeiroItemLabel(), "1", "A quantidade do primeiro item está incorreta.");
+        assertEquals(overview.nomeDoPrimeiroItemCheckoutLabel(), "Sauce Labs Backpack", "O nome do primeiro item está incorreta");
+        assertEquals(overview.valorDoPrimeiroItemCheckoutLabel(), "$29.99", "O valor do primeiro item está incorreta.");
     }
 
     private void verificarSegundoItemCheckout() throws Exception {
-        assertEquals(overview.quantidadeSegundoItemLabel(), "1");
-        assertEquals(overview.nomeDoSegundoItemCheckoutLabel(), "Sauce Labs Fleece Jacket");
-        assertEquals(overview.valorDoSegundoItemCheckoutLabel(), "$49.99");
+        assertEquals(overview.quantidadeSegundoItemLabel(), "1", "A quantidade do segundo item está incorreta.");
+        assertEquals(overview.nomeDoSegundoItemCheckoutLabel(), "Sauce Labs Fleece Jacket", "O nome do segundo item está incorreta");
+        assertEquals(overview.valorDoSegundoItemCheckoutLabel(), "$49.99", "O valor do segundo item está incorreta.");
     }
 
     private void verificarInformacoesCheckout() throws Exception {
-        assertEquals(overview.obterFormaDePagamentoLabel(), "SauceCard #31337");
-        assertEquals(overview.obterInformacoesDeEnvioLabel(), "FREE PONY EXPRESS DELIVERY!");
-        assertEquals(overview.valorTotalDosItensLabel(), "Item total: $79.98");
-        assertEquals(overview.valorComTaxasLabel(), "Tax: $6.40");
-        assertEquals(overview.valorTotalFinalLabel(), "Total: $86.38");
+        assertEquals(overview.obterFormaDePagamentoLabel(), "SauceCard #31337", "A forma de pagamento exibida não é a esperada.");
+        assertEquals(overview.obterInformacoesDeEnvioLabel(), "FREE PONY EXPRESS DELIVERY!", "A mensagem de frete não está correta.");
+        assertEquals(overview.valorTotalDosItensLabel(), "Item total: $79.98", "O valor total dos itens está incorreto.");
+        assertEquals(overview.valorComTaxasLabel(), "Tax: $6.40", "O valor da taxa dos itens está incorreto.");
+        assertEquals(overview.valorTotalFinalLabel(), "Total: $86.38", "O valor total final está incorreto.");
     }
 
     private void verificarFinalizacaoELogout() throws Exception {
         Report.logCapture(Status.INFO, "Redirecionado para tela de Finish");
-        assertEquals(finish.tituloFinishNoTopoLabel(), "Finish");
-        assertEquals(finish.tituloThankYouForYourOrderLabel(), "THANK YOU FOR YOUR ORDER");
+        assertEquals(finish.tituloFinishNoTopoLabel(), "Finish", "O titulo exibida na pagina está incorreta");
+        assertEquals(finish.tituloThankYouForYourOrderLabel(), "THANK YOU FOR YOUR ORDER", "A mensagem de confirmação de pedido está incorreto.");
         click(finish.tresListrasNoTopoButton());
         click(finish.logoutNoSideBarButton());
         Report.logCapture(Status.INFO,"Redirecionado para tela de Login");
