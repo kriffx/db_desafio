@@ -31,4 +31,4 @@ jobs:
 
       # Roda testes
       - name: Run Tests
-        run: mvn test --batch-mode
+        run: mvn test
