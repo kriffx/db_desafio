@@ -27,7 +27,7 @@ jobs:
 
       # Compilar projeto com Maven
       - name: Build with Maven
-        run: mvn clean install --batch-mode
+        run: mvn clean install -X
 
       # Roda testes
       - name: Run Tests
