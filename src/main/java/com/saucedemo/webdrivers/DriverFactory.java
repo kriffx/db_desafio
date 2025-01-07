@@ -24,7 +24,7 @@ public class DriverFactory {
                     WebDriverManager.firefoxdriver().setup();
                     return new FirefoxDriver();
                 case CHROME:
-                WebDriverManager.chromedriver().clearResolutionCache().setup();
+                    WebDriverManager.chromedriver().clearResolutionCache().driverVersion("131.0.6778.205").setup();
                     return new ChromeDriver();
                 case EDGE:
                     WebDriverManager.edgedriver().setup();
