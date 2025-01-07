@@ -1,69 +1,23 @@
-name: Run Tests
-
+name: Java CI with Maven
+ 
 on:
   push:
     branches: [ "master" ]
-
+  pull_request:
+    branches: [ "master" ]
+ 
 jobs:
   build:
+ 
     runs-on: ubuntu-latest
-
+ 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: maven
-
-      - name: Maven Clean
-        run: mvn clean
-
-      - name: Verify Configuration report-config
-        run: ls -al src/main/resources/report_config/html-config.xml
-
-      - name: Verify Configuration extent properties
-        run: ls -al src/main/resources/extent.properties
-
-      # Install a specific version of Google Chrome
-      - name: Install Google Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget
-          wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_110.0.5481.77-1_amd64.deb
-          sudo apt install ./google-chrome-stable_110.0.5481.77-1_amd64.deb
-
-      # Install ChromeDriver
-      - name: Install ChromeDriver
-        run: |
-          CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | sed 's/\..*//')
-          echo "Chrome Major Version: $CHROME_VERSION"
-          
-          CHROMEDRIVER_VERSION=$(curl -sSL "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-          echo "ChromeDriver Version: $CHROMEDRIVER_VERSION"
-
-          if [ -z "$CHROMEDRIVER_VERSION" ]; then
-            echo "Erro: Não foi possível determinar a versão correta do ChromeDriver."
-            exit 1
-          fi
-
-          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip -O chromedriver_linux64.zip
-
-          if [ $? -ne 0 ]; then
-            echo "Erro: Falha no download do ChromeDriver."
-            exit 1
-          fi
-
-          unzip chromedriver_linux64.zip || { echo "Erro: Falha ao extrair o ChromeDriver."; exit 1; }
-
-          sudo mv chromedriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
-
-      - name: Chrome Version
-        run: google-chrome --version
-
-      # Rodar os testes com debug
-      - name: Run Tests with debug
-        run: mvn test -X -Dtest=LoginAndPurchaseTestCase
+    - uses: actions/checkout@v4
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
