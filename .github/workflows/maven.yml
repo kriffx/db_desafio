@@ -20,9 +20,9 @@ jobs:
 
     - name: Maven Clean
       run: mvn clean
-      
-    - name: Verify Configuration File
-      run: ls -al src/main/resources
 
-    - name: Run Tests
-      run: mvn test -Dtest=LoginAndPurchaseTestCase
+    - name: Verify Configuration File
+      run: ls -al src/main/resources/report_config
+
+    - name: Run Tests with debug
+      run: mvn test -X -Dtest=LoginAndPurchaseTestCase
