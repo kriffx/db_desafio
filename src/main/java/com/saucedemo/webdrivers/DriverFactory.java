@@ -24,18 +24,18 @@ public class DriverFactory {
                     WebDriverManager.firefoxdriver().setup();
                     return new FirefoxDriver();
                 case CHROME:
-                    WebDriverManager.chromedriver().setup();  // Ensure this sets up the latest compatible version
+                WebDriverManager.chromedriver().clearResolutionCache().setup();
                     return new ChromeDriver();
                 case EDGE:
                     WebDriverManager.edgedriver().setup();
                     return new EdgeDriver();
                 default:
-                    throw new IllegalArgumentException("Invalid browser: " + browser);
+                    throw new IllegalArgumentException("Navegador inválido:" + browser);
             }
         } catch (SessionNotCreatedException e) {
-            throw new SessionNotCreatedException("Session not created, unsupported driver version.", e);
+            throw new SessionNotCreatedException("Sessão não criada, versão de driver não suportada.", e);
         } catch (WebDriverException e) {
-            throw new WebDriverException("Unable to find driver binary.", e);
+            throw new WebDriverException("Não foi possível encontrar o binário do driver.", e);
         }
     }
 }
