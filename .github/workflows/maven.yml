@@ -1,52 +1,69 @@
-name: Java CI with Maven
+name: Run Tests
 
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
+      - uses: actions/checkout@v4
 
-    - name: Install Google Chrome
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y wget
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo apt install ./google-chrome-stable_current_amd64.deb
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
 
-    - name: Install ChromeDriver for Testing
-      run: |
-          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+' | head -1)
-          CHROME_MAJOR_VERSION=$(echo $CHROME_VERSION | cut -d '.' -f 1)
+      - name: Maven Clean
+        run: mvn clean
 
-          CHROMEDRIVER_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/131.0.6778.204/linux64/chromedriver-linux64.zip"
+      - name: Verify Configuration report-config
+        run: ls -al src/main/resources/report_config/html-config.xml
 
-          echo "Baixando ChromeDriver de Testes: $CHROMEDRIVER_URL"
-          wget $CHROMEDRIVER_URL -O chromedriver_linux64.zip || { echo "Erro ao baixar ChromeDriver"; exit 1; }
-          unzip chromedriver_linux64.zip
+      - name: Verify Configuration extent properties
+        run: ls -al src/main/resources/extent.properties
 
-          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
+      # Install a specific version of Google Chrome
+      - name: Install Google Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget
+          wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_110.0.5481.77-1_amd64.deb
+          sudo apt install ./google-chrome-stable_110.0.5481.77-1_amd64.deb
+
+      # Install ChromeDriver
+      - name: Install ChromeDriver
+        run: |
+          CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | sed 's/\..*//')
+          echo "Chrome Major Version: $CHROME_VERSION"
+          
+          CHROMEDRIVER_VERSION=$(curl -sSL "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
+          echo "ChromeDriver Version: $CHROMEDRIVER_VERSION"
+
+          if [ -z "$CHROMEDRIVER_VERSION" ]; then
+            echo "Erro: Não foi possível determinar a versão correta do ChromeDriver."
+            exit 1
+          fi
+
+          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip -O chromedriver_linux64.zip
+
+          if [ $? -ne 0 ]; then
+            echo "Erro: Falha no download do ChromeDriver."
+            exit 1
+          fi
+
+          unzip chromedriver_linux64.zip || { echo "Erro: Falha ao extrair o ChromeDriver."; exit 1; }
+
+          sudo mv chromedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/chromedriver
 
-          chromedriver --version
+      - name: Chrome Version
+        run: google-chrome --version
 
-          echo "ChromeDriver instalado com sucesso!"    
-
-    - name: Maven Clean
-      run: mvn clean   
-
-    - name: Run Tests with debug
-      run: mvn test -X -Dtest=LoginAndPurchaseTestCase
+      # Rodar os testes com debug
+      - name: Run Tests with debug
+        run: mvn test -X -Dtest=LoginAndPurchaseTestCase
