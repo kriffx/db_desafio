@@ -1,6 +1,5 @@
 package com.saucedemo.webdrivers;
 
-import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.ExtentTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.SessionNotCreatedException;
@@ -24,7 +23,7 @@ public class DriverFactory {
                     WebDriverManager.firefoxdriver().setup();
                     return new FirefoxDriver();
                 case CHROME:
-                    WebDriverManager.chromedriver().clearResolutionCache().driverVersion("131.0.6778.205").setup();
+                    WebDriverManager.chromedriver().setup();
                     return new ChromeDriver();
                 case EDGE:
                     WebDriverManager.edgedriver().setup();

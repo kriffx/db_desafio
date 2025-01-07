@@ -21,7 +21,7 @@ public class BaseTest {
         extentReports = ExtentService.getInstance();
         extentTest = extentReports.createTest("O teste esta iniciando.");
         DriverFactory.setTest(extentTest);
-        WebDriver driver = DriverFactory.createInstance(BrowserEnum.CHROME);
+        WebDriver driver = DriverFactory.createInstance(BrowserEnum.EDGE);
         DriverManager.setDriver(driver);
         driver.manage().window().maximize();
         driver.get(Property.get("url"));
