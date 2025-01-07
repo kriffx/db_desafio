@@ -30,7 +30,8 @@ jobs:
     - name: Install ChromeDriver
       run: |
         CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+' | head -1)
-        CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
+        CHROME_MAJOR_VERSION=$(echo $CHROME_VERSION | cut -d '.' -f 1)
+        CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_MAJOR_VERSION")
         wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
         sudo mv chromedriver /usr/local/bin/
@@ -42,6 +43,5 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-      # Rodar os testes com debug
     - name: Run Tests with debug
       run: mvn test -X -Dtest=LoginAndPurchaseTestCase
