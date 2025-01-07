@@ -27,8 +27,8 @@ jobs:
         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         sudo apt install ./google-chrome-stable_current_amd64.deb
 
-        - name: Install ChromeDriver
-        run: |
+    - name: Install ChromeDriver
+      run: |
           # Obter versão completa do Chrome instalada
           CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+' | head -1)
           CHROME_MAJOR_VERSION=$(echo $CHROME_VERSION | cut -d '.' -f 1)
