@@ -24,8 +24,10 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y wget
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo apt install ./google-chrome-stable_current_amd64.deb
+        wget https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.264/linux64/chrome-linux64.zip
+        unzip chrome-linux64.zip
+
+        echo "Google Chrome instalado com sucesso!"
 
     - name: Install ChromeDriver for Testing
       run: |
