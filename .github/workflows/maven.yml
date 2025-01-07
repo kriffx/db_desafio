@@ -21,8 +21,11 @@ jobs:
     - name: Maven Clean
       run: mvn clean
 
-    - name: Verify Configuration File
-      run: ls -al src/main/resources/report_config
+    - name: Verify Configuration report-config
+      run: ls -al src/main/resources/report_config/html.config.xml
+
+    - name: Verify Configuration extent properties
+      run: ls -al src/main/resources/extent.properties
 
     - name: Run Tests with debug
       run: mvn test -X -Dtest=LoginAndPurchaseTestCase
