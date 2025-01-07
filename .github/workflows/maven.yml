@@ -48,5 +48,5 @@ jobs:
     - name: Maven Clean
       run: mvn clean   
 
-    - name: Run Tests with debug
-      run: mvn test -X -Dtest=LoginAndPurchaseTestCase
+    - name: Run Tests
+      run: mvn test -Dtest=LoginAndPurchaseTestCase
