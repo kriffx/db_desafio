@@ -1,5 +1,6 @@
 package com.saucedemo.webdrivers;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.service.ExtentTestManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -11,6 +12,12 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverFactory {
+    private static ExtentTest test;
+
+    public static void setTest(ExtentTest extentTest) {
+        test = extentTest;
+    }
+
     public static WebDriver createInstance(BrowserEnum browser) {
         try {
             switch (browser) {
