@@ -20,6 +20,10 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+        #clean 
+    - name: Maven Clean
+      run: mvn clean
+
         # Teste
     - name: Run Specific Tests
       run: mvn -Dtest=LoginAndPurchaseTestCase test
