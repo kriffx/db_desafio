@@ -27,18 +27,17 @@ jobs:
       - name: Verify Configuration extent properties
         run: ls -al src/main/resources/extent.properties
 
-      # Instalar o Google Chrome
+      # Install a specific version of Google Chrome
       - name: Install Google Chrome
         run: |
           sudo apt-get update
           sudo apt-get install -y wget
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt install ./google-chrome-stable_current_amd64.deb
+          wget https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_110.0.5481.77-1_amd64.deb
+          sudo apt install ./google-chrome-stable_110.0.5481.77-1_amd64.deb
 
       # Install ChromeDriver
       - name: Install ChromeDriver
         run: |
-
           CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | sed 's/\..*//')
           echo "Chrome Major Version: $CHROME_VERSION"
           
