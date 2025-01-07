@@ -22,9 +22,6 @@ public class DriverFactory {
                 case FIREFOX:
                     WebDriverManager.firefoxdriver().setup();
                     return new FirefoxDriver();
-                case CHROME:
-                    WebDriverManager.chromedriver().setup();
-                    return new ChromeDriver();
                 case EDGE:
                     WebDriverManager.edgedriver().setup();
                     return new EdgeDriver();
