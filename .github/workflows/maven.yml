@@ -20,6 +20,9 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+    - name: Update System
+      run: sudo apt-get update && sudo apt-get upgrade -y
+
     - name: Install Google Chrome
       run: |
         sudo apt-get update
@@ -28,6 +31,10 @@ jobs:
         unzip chrome-linux64.zip
 
         echo "Google Chrome instalado com sucesso!"
+
+    - name: Check Chrome Version
+      run: google-chrome --version
+
 
     - name: Install ChromeDriver for Testing
       run: |
@@ -51,4 +58,4 @@ jobs:
       run: mvn clean   
 
     - name: Run Tests
-      run: mvn test -Dtest=LoginAndPurchaseTestCase
+      run: mvn test -X -Dtest=LoginAndPurchaseTestCase
