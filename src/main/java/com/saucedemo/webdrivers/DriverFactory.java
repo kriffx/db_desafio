@@ -1,8 +1,7 @@
 package com.saucedemo.webdrivers;
 
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.service.ExtentTestManager;
+import com.aventstack.extentreports.ExtentTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.WebDriver;
@@ -32,16 +31,22 @@ public class DriverFactory {
                     return new EdgeDriver();
                 default:
                     String message = "DriverFactory.getInstance() recebeu um argumento invalido";
-                    ExtentTestManager.getTest().log(Status.FAIL, message);
+                    if (test != null) {
+                        test.log(Status.FAIL, message);
+                    }
                     throw new IllegalArgumentException(message);
             }
         } catch (SessionNotCreatedException e) {
-            String message = "Sessao dao criada, versao do driver nao suportada.";
-            ExtentTestManager.getTest().log(Status.FAIL, message);
+            String message = "Sessao nao criada, versao do driver nao suportada.";
+            if (test != null) {
+                test.log(Status.FAIL, message);
+            }
             throw new SessionNotCreatedException(message, e);
         } catch (WebDriverException e) {
             String message = "Nao foi possivel encontrar o binario do driver.";
-            ExtentTestManager.getTest().log(Status.FAIL, message);
+            if (test != null) {
+                test.log(Status.FAIL, message);
+            }
             throw new WebDriverException(message, e);
         }
     }
