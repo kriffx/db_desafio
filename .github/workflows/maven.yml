@@ -38,11 +38,27 @@ jobs:
       # Install ChromeDriver
       - name: Install ChromeDriver
         run: |
+
           CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | sed 's/\..*//')
+          echo "Chrome Major Version: $CHROME_VERSION"
+          
           CHROMEDRIVER_VERSION=$(curl -sSL "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
           echo "ChromeDriver Version: $CHROMEDRIVER_VERSION"
-          wget https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chromedriver-linux64.zip
-          unzip chromedriver_linux64.zip
+
+          if [ -z "$CHROMEDRIVER_VERSION" ]; then
+            echo "Erro: Não foi possível determinar a versão correta do ChromeDriver."
+            exit 1
+          fi
+
+          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip -O chromedriver_linux64.zip
+
+          if [ $? -ne 0 ]; then
+            echo "Erro: Falha no download do ChromeDriver."
+            exit 1
+          fi
+
+          unzip chromedriver_linux64.zip || { echo "Erro: Falha ao extrair o ChromeDriver."; exit 1; }
+
           sudo mv chromedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/chromedriver
 
