@@ -50,12 +50,16 @@ jobs:
           sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/chromedriver
 
-          chromedriver --version
+          echo "ChromeDriver instalado com sucesso!"
 
-          echo "ChromeDriver instalado com sucesso!"    
+    - name: Check ChromeDriver Version
+      run: chromedriver --version
 
     - name: Maven Clean
-      run: mvn clean   
+      run: mvn clean
+      
+    - name: Maven Install
+      run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
     - name: Run Tests
       run: mvn test -X -Dtest=LoginAndPurchaseTestCase
