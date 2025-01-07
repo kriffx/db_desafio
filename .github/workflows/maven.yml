@@ -41,14 +41,14 @@ jobs:
           CHROME_VERSION=$(google-chrome --version | awk '{print $3}' | sed 's/\..*//')
           CHROMEDRIVER_VERSION=$(curl -sSL "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
           echo "ChromeDriver Version: $CHROMEDRIVER_VERSION"
-          wget https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chrome-linux64.zip
+          wget https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chromedriver-linux64.zip
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/chromedriver
 
       - name: Chrome Version
         run: google-chrome --version
-        
+
       # Rodar os testes com debug
       - name: Run Tests with debug
         run: mvn test -X -Dtest=LoginAndPurchaseTestCase
