@@ -60,13 +60,3 @@ jobs:
 
     - name: Run Tests
       run: mvn test -X -Dtest=LoginAndPurchaseTestCase || { echo 'Testes falharam'; exit 1; }
-    
-    - name: Generate Test Report
-      run: mvn surefire-report:report
-    
-    - name: Remove Chrome and ChromeDriver
-      run: |
-        sudo rm -rf chrome-linux64.zip
-        sudo rm -rf chromedriver_linux64.zip
-        sudo rm -rf chrome-linux64
-        sudo rm -rf chromedriver-linux64

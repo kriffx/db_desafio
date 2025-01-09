@@ -20,7 +20,7 @@ public class DriverFactory {
         if (headless.equals("true") || headless.equals("false")) {
             isHeadless = Boolean.parseBoolean(headless);
         } else {
-            throw new IllegalArgumentException("The headless argument only receives true or false!");
+            throw new IllegalArgumentException("O parâmetro 'headless' aceita apenas valores booleanos: true ou false.");
         }
 
         try {
