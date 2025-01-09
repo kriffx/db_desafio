@@ -12,7 +12,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        WebDriver driver = DriverFactory.createInstance(BrowserEnum.CHROME);
+        WebDriver driver = DriverFactory.createInstance(BrowserEnum.EDGE);
         DriverManager.setDriver(driver);
         driver.manage().window().maximize();
         driver.get(Property.get("url"));
