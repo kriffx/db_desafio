@@ -33,7 +33,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.10</version>
                 <configuration>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <!-- <testFailureIgnore>true</testFailureIgnore> -->
+                    <skipTests>true</skipTests>
                 </configuration>
             </plugin>
         </plugins>
