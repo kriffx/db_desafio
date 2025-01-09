@@ -54,6 +54,9 @@ jobs:
 
     - name: Maven Clean
       run: mvn clean
+
+    - name: Maven Dependency Tree
+      run: mvn dependency:tree
       
     - name: Maven Install
       run: mvn install -DskipTests=true
