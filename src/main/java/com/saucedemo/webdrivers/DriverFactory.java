@@ -37,6 +37,8 @@ public class DriverFactory {
                     ChromeOptions chromeOptions = new ChromeOptions();
                     if (isHeadless) {
                         chromeOptions.addArguments("--headless");
+                        chromeOptions.addArguments("--no-sandbox");
+                        chromeOptions.addArguments("--disable-dev-shm-usage");
                     }
                     return new ChromeDriver();
                 case EDGE:
