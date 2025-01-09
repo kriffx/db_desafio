@@ -20,6 +20,38 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+    - name: Install Google Chrome
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y wget
+        wget https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.264/linux64/chrome-linux64.zip
+        unzip chrome-linux64.zip
+
+        echo "Google Chrome instalado com sucesso!"
+
+    - name: Check Chrome Version
+      run: google-chrome --version
+
+
+    - name: Install ChromeDriver for Testing
+      run: |
+          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+' | head -1)
+          CHROME_MAJOR_VERSION=$(echo $CHROME_VERSION | cut -d '.' -f 1)
+
+          CHROMEDRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.264/linux64/chromedriver-linux64.zip"
+
+          echo "Baixando ChromeDriver de Testes: $CHROMEDRIVER_URL"
+          wget $CHROMEDRIVER_URL -O chromedriver_linux64.zip || { echo "Erro ao baixar ChromeDriver"; exit 1; }
+          unzip chromedriver_linux64.zip
+
+          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
+          sudo chmod +x /usr/local/bin/chromedriver
+
+          echo "ChromeDriver instalado com sucesso!"
+
+    - name: Check ChromeDriver Version
+      run: chromedriver --version
+
     - name: Maven Clean
       run: mvn clean
       
