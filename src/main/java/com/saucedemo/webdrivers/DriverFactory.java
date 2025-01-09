@@ -39,6 +39,7 @@ public class DriverFactory {
                         chromeOptions.addArguments("--headless");
                         chromeOptions.addArguments("--no-sandbox");
                         chromeOptions.addArguments("--disable-dev-shm-usage");
+                        chromeOptions.addArguments("--ignore-certificate-errors");
                     }
                     return new ChromeDriver(chromeOptions);
                 case EDGE:
