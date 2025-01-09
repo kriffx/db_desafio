@@ -14,10 +14,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class DriverFactory {
-
-    @Setter
-    private static ExtentTest test;
-    public static boolean isHeadless;
+    static boolean isHeadless;
 
     public static WebDriver createInstance(BrowserEnum browser) {
 
