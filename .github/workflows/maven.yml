@@ -22,12 +22,12 @@ jobs:
 
     - name: Install Google Chrome
       run: |
-        sudo apt-get update
-        sudo apt-get install -y wget
-        wget https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.264/linux64/chrome-linux64.zip
-        unzip chrome-linux64.zip
+          sudo apt-get update
+          sudo apt-get install -y wget unzip
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -f install
 
-        echo "Google Chrome instalado com sucesso!"
+          echo "Google Chrome instalado com sucesso!"
 
     - name: Check Chrome Version
       run: google-chrome --version
@@ -38,13 +38,12 @@ jobs:
           CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+' | head -1)
           CHROME_MAJOR_VERSION=$(echo $CHROME_VERSION | cut -d '.' -f 1)
 
-          CHROMEDRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.264/linux64/chromedriver-linux64.zip"
+          CHROMEDRIVER_URL="https://chromedriver.storage.googleapis.com/${CHROME_MAJOR_VERSION}.0/chromedriver_linux64.zip"
 
-          echo "Baixando ChromeDriver de Testes: $CHROMEDRIVER_URL"
+          echo "Baixando ChromeDriver: $CHROMEDRIVER_URL"
           wget $CHROMEDRIVER_URL -O chromedriver_linux64.zip || { echo "Erro ao baixar ChromeDriver"; exit 1; }
           unzip chromedriver_linux64.zip
-
-          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
+          sudo mv chromedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/chromedriver
 
           echo "ChromeDriver instalado com sucesso!"
