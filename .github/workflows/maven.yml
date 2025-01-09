@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
     - uses: actions/checkout@v4
@@ -37,8 +37,9 @@ jobs:
       run: |
           CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+' | head -1)
           CHROME_MAJOR_VERSION=$(echo $CHROME_VERSION | cut -d '.' -f 1)
+          CHROME_MINOR_VERSION=$(echo $CHROME_VERSION | cut -d '.' -f 2)
 
-          CHROMEDRIVER_URL="https://chromedriver.storage.googleapis.com/${CHROME_MAJOR_VERSION}.0/chromedriver_linux64.zip"
+          CHROMEDRIVER_URL="https://chromedriver.storage.googleapis.com/${CHROME_MAJOR_VERSION}.${CHROME_MINOR_VERSION}/chromedriver_linux64.zip"
 
           echo "Baixando ChromeDriver: $CHROMEDRIVER_URL"
           wget $CHROMEDRIVER_URL -O chromedriver_linux64.zip || { echo "Erro ao baixar ChromeDriver"; exit 1; }
