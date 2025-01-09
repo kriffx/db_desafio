@@ -5,7 +5,7 @@
 
 > _O site apresenta uma interface simples de e-commerce, permitindo a realização de tarefas como login, navegação por produtos, adição de itens ao carrinho e finalização de compras._
 > 
-> _É utilizado para práticas de teste de software, fornecido pela Sauce Labs, uma plataforma que permite simular diferentes cenários em ambientes web._
+> _É utilizado para práticas de teste de software, fornecido pela Sauce Labs, uma plataforma que permite simular diferentes cenários em ambientes web_
 
 ---
 
