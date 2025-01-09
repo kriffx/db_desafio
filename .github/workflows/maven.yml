@@ -24,8 +24,8 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y wget
-        wget https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.264/linux64/chrome-linux64.zip
-        unzip chrome-linux64.zip
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo apt install ./google-chrome-stable_current_amd64.deb
 
         echo "Google Chrome instalado com sucesso!"
 
@@ -35,17 +35,7 @@ jobs:
 
     - name: Install ChromeDriver for Testing
       run: |
-          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+' | head -1)
-          CHROME_MAJOR_VERSION=$(echo $CHROME_VERSION | cut -d '.' -f 1)
-
-          CHROMEDRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.264/linux64/chromedriver-linux64.zip"
-
-          echo "Baixando ChromeDriver de Testes: $CHROMEDRIVER_URL"
-          wget $CHROMEDRIVER_URL -O chromedriver_linux64.zip || { echo "Erro ao baixar ChromeDriver"; exit 1; }
-          unzip chromedriver_linux64.zip
-
-          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
+          sudo apt-get install -y chromium-chromedriver
 
           echo "ChromeDriver instalado com sucesso!"
 
@@ -59,4 +49,14 @@ jobs:
       run: mvn install -DskipTests=true
 
     - name: Run Tests
-      run: mvn test -X -Dtest=LoginAndPurchaseTestCase
+      run: mvn test -X -Dtest=LoginAndPurchaseTestCase || { echo 'Testes falharam'; exit 1; }
+    
+    - name: Generate Test Report
+      run: mvn surefire-report:report
+    
+    - name: Remove Chrome and ChromeDriver
+      run: |
+        sudo rm -rf chrome-linux64.zip
+        sudo rm -rf chromedriver_linux64.zip
+        sudo rm -rf chrome-linux64
+        sudo rm -rf chromedriver-linux64
