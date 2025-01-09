@@ -31,7 +31,7 @@ public class DriverFactory {
                     if (isHeadless) {
                         firefoxOptions.addArguments("--headless");
                     }
-                    return new FirefoxDriver();
+                    return new FirefoxDriver(firefoxOptions);
                 case CHROME:
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions = new ChromeOptions();
@@ -40,14 +40,14 @@ public class DriverFactory {
                         chromeOptions.addArguments("--no-sandbox");
                         chromeOptions.addArguments("--disable-dev-shm-usage");
                     }
-                    return new ChromeDriver();
+                    return new ChromeDriver(chromeOptions);
                 case EDGE:
                     WebDriverManager.edgedriver().setup();
                     EdgeOptions edgeOptions = new EdgeOptions();
                     if (isHeadless) {
                         edgeOptions.addArguments("--headless");
                     }
-                    return new EdgeDriver();
+                    return new EdgeDriver(edgeOptions);
                 default:
                     throw new IllegalArgumentException("Navegador inválido:" + browser);
             }
