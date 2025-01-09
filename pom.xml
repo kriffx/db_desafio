@@ -34,7 +34,7 @@
                 <version>2.10</version>
                 <configuration>
                     <!-- <testFailureIgnore>true</testFailureIgnore> -->
-                    <skipTests>true</skipTests>
+                    <!-- <skipTests>true</skipTests> -->
                 </configuration>
             </plugin>
         </plugins>
