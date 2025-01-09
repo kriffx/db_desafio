@@ -19,6 +19,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+        
+    - name: Google Chrome install
+      run: |
+        chmod +x ./scripts/InstallChrome.sh
+        ./scripts/InstallChrome.sh
 
     - name: Maven Clean
       run: mvn clean
